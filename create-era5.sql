@@ -1,20 +1,27 @@
 /* Run with psql -d era5 -f create-era5.sql */
 
+\set ON_ERROR_STOP on
+
 CREATE TABLE IF NOT EXISTS "meta" (
-  "code" SERIAL PRIMARY KEY,
+  "id" SERIAL PRIMARY KEY,
   "variable" varchar NOT NULL,
-  "timescale" int NOT NULL,
-  "totalsize" int DEFAULT 0,
-  "blocksize" int DEFAULT 0,
-  "starttime" timestamp NOT NULL
+  "starttime" timestamp NOT NULL,
+  "timescale" interval NOT NULL,
+  "totaltime" interval NOT NULL
 );
 
 /* Add postgis extension to manage coordinate queries */
 CREATE EXTENSION IF NOT EXISTS postgis;
 
-CREATE TABLE IF NOT EXISTS "w10u" ();
-CREATE TABLE IF NOT EXISTS "w10v" ();
-CREATE TABLE IF NOT EXISTS "swh" ();
+CREATE TABLE IF NOT EXISTS "w10u" (
+	"id" int NOT NULL REFERENCES meta(id)
+);
+CREATE TABLE IF NOT EXISTS "w10v" (
+	"id" int NOT NULL REFERENCES meta(id)
+);
+CREATE TABLE IF NOT EXISTS "swh" (
+	"id" int NOT NULL REFERENCES meta(id)
+);
 
 /* Add columns to be indexed by postgis */
 SELECT AddGeometryColumn ('w10v', 'coordinate', 0, 'POINT', 2);
@@ -24,3 +31,5 @@ SELECT AddGeometryColumn ('swh', 'coordinate', 0, 'POINT', 2);
 ALTER TABLE w10u ADD COLUMN data oid;
 ALTER TABLE w10v ADD COLUMN data oid;
 ALTER TABLE swh ADD COLUMN data oid;
+
+\unset ON_ERROR_STOP

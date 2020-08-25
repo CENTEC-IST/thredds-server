@@ -13,23 +13,23 @@ CREATE TABLE IF NOT EXISTS "meta" (
 /* Add postgis extension to manage coordinate queries */
 CREATE EXTENSION IF NOT EXISTS postgis;
 
-CREATE TABLE IF NOT EXISTS "w10u" (
+CREATE TABLE IF NOT EXISTS "wind_10u" (
 	"id" int NOT NULL REFERENCES meta(id)
 );
-CREATE TABLE IF NOT EXISTS "w10v" (
+CREATE TABLE IF NOT EXISTS "wind_10v" (
 	"id" int NOT NULL REFERENCES meta(id)
 );
-CREATE TABLE IF NOT EXISTS "swh" (
+CREATE TABLE IF NOT EXISTS "significant_height" (
 	"id" int NOT NULL REFERENCES meta(id)
 );
 
 /* Add columns to be indexed by postgis */
-SELECT AddGeometryColumn ('w10v', 'coordinate', 0, 'POINT', 2);
-SELECT AddGeometryColumn ('w10u', 'coordinate', 0, 'POINT', 2);
-SELECT AddGeometryColumn ('swh', 'coordinate', 0, 'POINT', 2);
+SELECT AddGeometryColumn ('wind_10u', 'coordinate', 0, 'POINT', 2);
+SELECT AddGeometryColumn ('wind_10v', 'coordinate', 0, 'POINT', 2);
+SELECT AddGeometryColumn ('significant_height', 'coordinate', 0, 'POINT', 2);
 
-ALTER TABLE w10u ADD COLUMN data oid;
-ALTER TABLE w10v ADD COLUMN data oid;
-ALTER TABLE swh ADD COLUMN data oid;
+ALTER TABLE wind_10u ADD COLUMN data oid;
+ALTER TABLE wind_10v ADD COLUMN data oid;
+ALTER TABLE significant_height ADD COLUMN data oid;
 
 \unset ON_ERROR_STOP

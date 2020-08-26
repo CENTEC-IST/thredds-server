@@ -18,7 +18,7 @@ VARIABLES = ['10u', '10v', 'swh'] # NOTE CHANGE HERE
 
 POSTGRESQL_TABLE_NAMES = {'10u':'wind_10u', '10v':'wind_10v', 'swh':'significant_height'}
 
-LOG_FILE_NAME = f"log/addToDB_{time.strftime('%Y%m%d.%H%M%S')}.log"
+LOG_FILE_NAME = f"logs/addToDB_{time.strftime('%Y%m%d.%H%M%S')}.log"
 _log_file = None
 
 def log(msg):

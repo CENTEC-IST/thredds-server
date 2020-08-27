@@ -35,7 +35,7 @@ services:
               source: ./tomcat-users.xml
               target: /usr/local/tomcat/conf/tomcat-users.xml
               read_only: true
-            
+
               #THREADS FOLDER -- UNCOMMENT JUST IN CASE
             - type: bind
               source: ./thredds

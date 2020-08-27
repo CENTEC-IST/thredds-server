@@ -19,10 +19,10 @@
       <!--phone></phone-->
     </contact>
     <hostInstitution>
-      <name>UM NOME QUALQUER</name>
-      <webSite>http://www.my.site/</webSite>
-      <logoUrl>myGroup.gif</logoUrl>
-      <logoAltText>UM NOME QUALQUER</logoAltText>
+      <name>Centro de Engenharia e Tecnologia Naval e Oceanica</name>
+      <webSite>http://www.centec.tecnico.ulisboa.pt/</webSite>
+      <logoUrl>http://www.centec.tecnico.ulisboa.pt/images/centec.png</logoUrl>
+      <logoAltText>CENTEC</logoAltText>
     </hostInstitution>
   </serverInformation>
 
@@ -214,7 +214,7 @@
     <allow>false</allow>
   </NCSOS>
   -->
-  
+
   <!-- CatalogGen service is off by default.
   <CatalogGen>
     <allow>false</allow>

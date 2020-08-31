@@ -177,13 +177,11 @@
     <maxAge>-1 min</maxAge>
   </NetcdfSubsetService>
 
-  <!--
   <Opendap>
     <ascLimit>50</ascLimit>
-    <binLimit>500</binLimit>
+    <binLimit>1000</binLimit>
     <serverVersion>opendap/3.7</serverVersion>
   </Opendap>
-    -->
 
   <!--
   The WCS Service is off by default.

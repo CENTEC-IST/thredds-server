@@ -69,5 +69,5 @@
   <!-- <datasetRoot path="test" location="content/testdata/" /> -->
   <!-- <dataset name="Test Single Dataset" ID="testDataset" -->
   <!--          serviceName="dap"  urlPath="test/testData.nc" dataType="Grid"/> -->
-  <catalogRef xlink:title="Test Catalog" xlink:href="testCatalog.xml" name=""/>
+  <catalogRef xlink:title="ERA5 Aggregation" xlink:href="era5AggCatalog.xml" name=""/>
 </catalog>

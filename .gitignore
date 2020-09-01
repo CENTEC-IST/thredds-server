@@ -1,6 +1,10 @@
+# DIRETORIES
 logs/*
 data_files/*
 thredds/cache/*
 thredds/logs/*
 thredds/public/*
 thredds/threddsConfig.xml
+
+# FILES
+tdm/tdm.log

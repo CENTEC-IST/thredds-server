@@ -1,4 +1,4 @@
-<!-- <?xml version="1.0" encoding="UTF-8"?> -->
+<?xml version="1.0" encoding="UTF-8"?>
 <threddsConfig>
 
   <!-- all options are commented out in standard install - meaning use default values -->
@@ -6,7 +6,7 @@
 
   <serverInformation>
     <name>THREDDS</name>
-    <logoUrl>/thredds/threddsIcon.gif</logoUrl>
+	<logoUrl>http://www.centec.tecnico.ulisboa.pt/renew2020/App_Themes/Renew2020/Images/IST_logo.jpg</logoUrl>
     <logoAltText>THREDDS</logoAltText>
 
     <abstract>Scientific Data</abstract>

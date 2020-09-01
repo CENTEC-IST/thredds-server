@@ -57,21 +57,36 @@ services:
               read_only: true
 
         env_file:
-            - "compose${THREDDS_COMPOSE_ENV_LOCAL}.env"
+            - "compose.env"
 
-####
-## TDM - TODO Set this up
-## https://github.com/Unidata/tdm-docker
-####
-#    tdm:
-#        image: unidata/tdm-docker:latest
-#        container_name: tdm
-#        volumes:
-#            - /path/to/your/thredds/directory:/usr/local/tomcat/content/thredds
-#            - /path/to/your/data/directory1:/path/to/your/data/directory1
-#              # TDM logging non-configurable until 5.0 so you'll need tdm.sh and
-#              # tdm.jar if you want to log outside the container :-(
-#            - /path/to/your/tdm/logs:/usr/local/tomcat/content/tdm/
-#        env_file:
-#            - "compose${THREDDS_COMPOSE_ENV_LOCAL}.env"
+###
+# TDM
+# https://github.com/Unidata/tdm-docker
+###
+    tdm:
+        image: unidata/tdm-docker:latest
+        container_name: tdm
+        volumes:
+            - type: bind
+              source: ./thredds
+              target: /usr/local/tomcat/content/thredds
+
+              # Bind this specifically because of permissions
+            - type: bind
+              source: ./threddsConfig.xml
+              target: /usr/local/tomcat/content/thredds/threddsConfig.xml
+              read_only: true
+
+            - type: bind
+              source: ./tdm/
+              target: /usr/local/tomcat/content/tdm/
+
+            # ========================  DATA
+            #
+            - type: bind
+              source: /media/degas/model/ECMWF/ERA5/
+              target: /usr/local/tomcat/content/thredds/public/ERA5/
+              read_only: true
+        env_file:
+            - "compose.env"
 

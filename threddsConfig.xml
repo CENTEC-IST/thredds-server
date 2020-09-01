@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<!-- <?xml version="1.0" encoding="UTF-8"?> -->
 <threddsConfig>
 
   <!-- all options are commented out in standard install - meaning use default values -->
@@ -26,15 +26,13 @@
     </hostInstitution>
   </serverInformation>
 
-  <!--
-  The <catalogRoot> element:
-  For catalogs you don't want visible from the /thredds/catalog.xml chain
-  of catalogs, you can use catalogRoot elements. Each catalog root config
-  catalog is crawled and used in configuring the TDS.
+  <!-- The <catalogRoot> element: -->
+  <!-- For catalogs you don't want visible from the /thredds/catalog.xml chain -->
+  <!-- of catalogs, you can use catalogRoot elements. Each catalog root config -->
+  <!-- catalog is crawled and used in configuring the TDS. -->
 
-  <catalogRoot>myExtraCatalog.xml</catalogRoot>
-  <catalogRoot>myOtherExtraCatalog.xml</catalogRoot>
-  -->
+  <catalogRoot>catalog.xml</catalogRoot>
+  <!-- <catalogRoot>myOtherExtraCatalog.xml</catalogRoot> -->
 
   <!--
    * Setup for generated HTML pages.

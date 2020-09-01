@@ -1,0 +1,69 @@
+2020-09-01T11:01:43.817 +0000 INFO  - org.springframework.context.support.FileSystemXmlApplicationContext - Refreshing org.springframework.context.support.FileSystemXmlApplicationContext@470f1802: startup date [Tue Sep 01 11:01:43 UTC 2020]; root of context hierarchy
+2020-09-01T11:01:43.838 +0000 INFO  - org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [resources/application-config.xml]
+2020-09-01T11:01:44.011 +0000 INFO  - org.quartz.impl.StdSchedulerFactory - Using default implementation for ThreadExecutor
+2020-09-01T11:01:44.013 +0000 INFO  - org.quartz.simpl.SimpleThreadPool - Job execution threads will use class loader of thread: main
+2020-09-01T11:01:44.021 +0000 INFO  - org.quartz.core.SchedulerSignalerImpl - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2020-09-01T11:01:44.021 +0000 INFO  - org.quartz.core.QuartzScheduler - Quartz Scheduler v.2.2.0 created.
+2020-09-01T11:01:44.022 +0000 INFO  - org.quartz.simpl.RAMJobStore - RAMJobStore initialized.
+2020-09-01T11:01:44.022 +0000 INFO  - org.quartz.core.QuartzScheduler - Scheduler meta-data: Quartz Scheduler (v2.2.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-09-01T11:01:44.023 +0000 INFO  - org.quartz.impl.StdSchedulerFactory - Quartz scheduler 'DefaultQuartzScheduler' initialized from default resource file in Quartz package: 'quartz.properties'
+2020-09-01T11:01:44.023 +0000 INFO  - org.quartz.impl.StdSchedulerFactory - Quartz scheduler version: 2.2.0
+2020-09-01T11:01:44.023 +0000 INFO  - org.quartz.core.QuartzScheduler - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+2020-09-01T11:01:44.120 +0000 INFO  - thredds.tdm.Tdm -  TDM nthreads= 1
+2020-09-01T11:01:44.124 +0000 INFO  - thredds.tdm.Tdm - TDS server added http://193.136.153.163/thredds/
+2020-09-01T11:01:44.125 +0000 INFO  - thredds.tdm.Tdm - ThreddsConfigReader reading xml file = /usr/local/tomcat/content/thredds/threddsConfig.xml
+2020-09-01T11:01:44.138 +0000 ERROR - thredds.tdm.Tdm - ThreddsConfigReader: incorrectly formed xml file [/usr/local/tomcat/content/thredds/threddsConfig.xml]: Error on line 1: Premature end of file.
+2020-09-01T11:01:44.138 +0000 INFO  - org.springframework.context.support.FileSystemXmlApplicationContext - Closing org.springframework.context.support.FileSystemXmlApplicationContext@470f1802: startup date [Tue Sep 01 11:01:43 UTC 2020]; root of context hierarchy
+2020-09-01T11:05:20.869 +0000 INFO  - org.springframework.context.support.FileSystemXmlApplicationContext - Refreshing org.springframework.context.support.FileSystemXmlApplicationContext@470f1802: startup date [Tue Sep 01 11:05:20 UTC 2020]; root of context hierarchy
+2020-09-01T11:05:20.898 +0000 INFO  - org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [resources/application-config.xml]
+2020-09-01T11:05:21.099 +0000 INFO  - org.quartz.impl.StdSchedulerFactory - Using default implementation for ThreadExecutor
+2020-09-01T11:05:21.101 +0000 INFO  - org.quartz.simpl.SimpleThreadPool - Job execution threads will use class loader of thread: main
+2020-09-01T11:05:21.109 +0000 INFO  - org.quartz.core.SchedulerSignalerImpl - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2020-09-01T11:05:21.110 +0000 INFO  - org.quartz.core.QuartzScheduler - Quartz Scheduler v.2.2.0 created.
+2020-09-01T11:05:21.111 +0000 INFO  - org.quartz.simpl.RAMJobStore - RAMJobStore initialized.
+2020-09-01T11:05:21.111 +0000 INFO  - org.quartz.core.QuartzScheduler - Scheduler meta-data: Quartz Scheduler (v2.2.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-09-01T11:05:21.112 +0000 INFO  - org.quartz.impl.StdSchedulerFactory - Quartz scheduler 'DefaultQuartzScheduler' initialized from default resource file in Quartz package: 'quartz.properties'
+2020-09-01T11:05:21.112 +0000 INFO  - org.quartz.impl.StdSchedulerFactory - Quartz scheduler version: 2.2.0
+2020-09-01T11:05:21.112 +0000 INFO  - org.quartz.core.QuartzScheduler - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+2020-09-01T11:05:21.225 +0000 INFO  - thredds.tdm.Tdm -  TDM nthreads= 1
+2020-09-01T11:05:21.230 +0000 INFO  - thredds.tdm.Tdm - TDS server added http://193.136.153.163/thredds/
+2020-09-01T11:05:21.232 +0000 INFO  - thredds.tdm.Tdm - ThreddsConfigReader reading xml file = /usr/local/tomcat/content/thredds/threddsConfig.xml
+2020-09-01T11:05:21.258 +0000 INFO  - thredds.tdm.Tdm - TDM set DiskCache2{cachePathPolicy=NestedDirectory, alwaysUseCache=false, cachePathPolicyParam='null', root='/usr/local/tomcat/content/thredds/cache/grib/', scourEveryMinutes=-1, persistMinutes=-1, fail=false}
+2020-09-01T11:05:21.267 +0000 INFO  - org.springframework.context.support.FileSystemXmlApplicationContext - Closing org.springframework.context.support.FileSystemXmlApplicationContext@470f1802: startup date [Tue Sep 01 11:05:20 UTC 2020]; root of context hierarchy
+2020-09-01T11:06:42.701 +0000 INFO  - org.springframework.context.support.FileSystemXmlApplicationContext - Refreshing org.springframework.context.support.FileSystemXmlApplicationContext@470f1802: startup date [Tue Sep 01 11:06:42 UTC 2020]; root of context hierarchy
+2020-09-01T11:06:42.728 +0000 INFO  - org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [resources/application-config.xml]
+2020-09-01T11:06:42.897 +0000 INFO  - org.quartz.impl.StdSchedulerFactory - Using default implementation for ThreadExecutor
+2020-09-01T11:06:42.899 +0000 INFO  - org.quartz.simpl.SimpleThreadPool - Job execution threads will use class loader of thread: main
+2020-09-01T11:06:42.908 +0000 INFO  - org.quartz.core.SchedulerSignalerImpl - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2020-09-01T11:06:42.908 +0000 INFO  - org.quartz.core.QuartzScheduler - Quartz Scheduler v.2.2.0 created.
+2020-09-01T11:06:42.909 +0000 INFO  - org.quartz.simpl.RAMJobStore - RAMJobStore initialized.
+2020-09-01T11:06:42.909 +0000 INFO  - org.quartz.core.QuartzScheduler - Scheduler meta-data: Quartz Scheduler (v2.2.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-09-01T11:06:42.910 +0000 INFO  - org.quartz.impl.StdSchedulerFactory - Quartz scheduler 'DefaultQuartzScheduler' initialized from default resource file in Quartz package: 'quartz.properties'
+2020-09-01T11:06:42.910 +0000 INFO  - org.quartz.impl.StdSchedulerFactory - Quartz scheduler version: 2.2.0
+2020-09-01T11:06:42.910 +0000 INFO  - org.quartz.core.QuartzScheduler - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+2020-09-01T11:06:43.024 +0000 INFO  - thredds.tdm.Tdm -  TDM nthreads= 1
+2020-09-01T11:06:43.029 +0000 INFO  - thredds.tdm.Tdm - TDS server added http://193.136.153.163/thredds/
+2020-09-01T11:06:43.031 +0000 INFO  - thredds.tdm.Tdm - ThreddsConfigReader reading xml file = /usr/local/tomcat/content/thredds/threddsConfig.xml
+2020-09-01T11:06:43.057 +0000 INFO  - thredds.tdm.Tdm - TDM set DiskCache2{cachePathPolicy=NestedDirectory, alwaysUseCache=false, cachePathPolicyParam='null', root='/usr/local/tomcat/content/thredds/cache/grib/', scourEveryMinutes=-1, persistMinutes=-1, fail=false}
+2020-09-01T11:06:43.066 +0000 INFO  - org.springframework.context.support.FileSystemXmlApplicationContext - Closing org.springframework.context.support.FileSystemXmlApplicationContext@470f1802: startup date [Tue Sep 01 11:06:42 UTC 2020]; root of context hierarchy

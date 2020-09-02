@@ -13,8 +13,8 @@
   <dataset name="ERA5 Aggregation" ID="era5agg" urlPath="content/era5agg">
     <serviceName>all</serviceName>
     <netcdf xmlns="http://www.unidata.ucar.edu/namespaces/netcdf/ncml-2.2">
-      <aggregation dimName="time" type="joinExisting" recheckEvery="4 sec">
-		  <scan location="/usr/local/tomcat/content/thredds/public/ERA5/2000/" subdirs="false" dateFormatMark="10u.era5.#yyyyMM" suffix=".nc" />
+      <aggregation dimName="time" type="joinExisting">
+		  <scan location="/usr/local/tomcat/content/thredds/public/ERA5/2000/" subdirs="false" dateFormatMark=".........#yyyyMM" suffix=".nc" regExp="10u.*"/>
       </aggregation>
     </netcdf>
   </dataset>

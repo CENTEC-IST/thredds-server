@@ -12,62 +12,8 @@
     <service name="odap" serviceType="OpenDAP" base="/thredds/dodsC/"/>
     <service name="dap4" serviceType="DAP4" base="/thredds/dap4/"/>
   </service>
-  <datasetScan name="ERA5" ID="era5scan" path="era5" location="content/ERA5" harvest="true">
-    <metadata inherited="true">
-      <documentation type="summary">ERA5 is produced using 4D-Var data assimilation in CY41R2 of ECMWF’s Integrated Forecast System (IFS), with 137 hybrid sigma/pressure (model) levels in the vertical, with the top level at 0.01 hPa. Atmospheric data are available on these levels and they are also interpolated to 37 pressure, 16 potential temperature and 1 potential vorticity level(s). "Surface or single level" data are also available, containing 2D parameters such as precipitation, 2m temperature, top of atmosphere radiation and vertical integrals over the entire atmosphere. The IFS is coupled to a soil model, the parameters of which are also designated as surface parameters, and an ocean wave model.
-        The ERA5 dataset contains one (hourly, 31 km) high resolution realisation (referred to as "reanalysis" or "HRES") and a reduced resolution ten member ensemble (referred to as "ensemble" or "EDA"). Generally, the data are available at a sub-daily and monthly frequency and consist of analyses and short (18 hour) forecasts, initialised twice daily from analyses at 06 and 18 UTC. Most analysed parameters are also available from the forecasts. There are a number of forecast parameters, e.g. mean rates and accumulations, that are not available from the analyses.
-        The data are archived in the ECMWF data archive (MARS) and a pertinent sub-set of the data, interpolated to a regular latitude/longitude grid, has been copied to the C3S Climate Data Store (CDS) disks. On the CDS disks, analyses are provided rather than forecasts, unless the parameter is only available from the forecasts.
-        The ERA5 HRES atmospheric data has a resolution of 31km, 0.28125 degrees, and the EDA has a resolution of 63km, 0.5625 degrees. (Depending on the parameter, the data are archived either as spectral coefficients with a triangular truncation of T639 (HRES) and T319 (EDA) or on a reduced Gaussian grid with a resolution of N320 (HRES) and N160 (EDA). These grids are so called "linear grids", sometimes referred to as TL639 (HRES) and TL319 (EDA).)</documentation>
-      <documentation type="rights">Freely available</documentation>
-      <creator>
-        <name vocabulary="DIF">ECMWF</name>
-        <contact url="https://www.ecmwf.int" email="https://www.ecmwf.int/en/about/contact-us"/>
-      </creator>
-      <publisher>
-        <name vocabulary="DIF">ECMWF/ERA5</name>
-        <contact url="https://www.ecmwf.int" email="https://www.ecmwf.int/en/about/contact-us"/>
-      </publisher>
-      <geospatialCoverage>
-        <northsouth>
-          <start>-77.34375</start>
-          <size>167</size>
-          <units>degrees_north</units>
-        </northsouth>
-        <eastwest>
-          <start>-101.8125</start>
-          <size>131.625</size>
-          <units>degrees_east</units>
-        </eastwest>
-        <updown>
-          <start>0.0</start>
-          <size>0.0</size>
-          <units>km</units>
-        </updown>
-      </geospatialCoverage>
-      <variables vocabulary="netCDF"/>
-      <variables vocabulary="Variables">
-        <variable name="10u" vocabulary_name="" units="m/s">10 Meter U Wind Component</variable>
-        <variable name="10v" vocabulary_name="" units="m/s">10 Meter V Wind Component</variable>
-        <variable name="swh" vocabulary_name="" units="m">Significant height of combined wind waves and swell</variable>
-      </variables>
-    </metadata>
-    <filter>
-      <include wildcard="*.era5.*.nc"/>
-    </filter>
-    <addID/>
-    <sort>
-      <lexigraphicByName increasing="false"/>
-    </sort>
-    <addLatest/>
-    <addDatasetSize/>
-    <addTimeCoverage datasetNameMatchPattern="....era5.([0-9]{4})([0-9]{2}).nc$" startTimeSubstitutionPattern="$1-$2-01T00:00:00" duration="744 hours"/>
-    <metadata inherited="true">
-      <serviceName>all</serviceName>
-      <dataType>Grid</dataType>
-    </metadata>
-  </datasetScan>
   <!-- <datasetRoot path="test" location="content/testdata/" /> -->
   <!-- <dataset name="Test Single Dataset" ID="testDataset" -->
   <!--          serviceName="dap"  urlPath="test/testData.nc" dataType="Grid"/> -->
-  <catalogRef xlink:title="ERA5 Aggregation" xlink:href="era5AggCatalog.xml" name=""/>
+  <catalogRef xlink:title="ERA5" xlink:href="era5Catalog.xml" name=""/>
 </catalog>

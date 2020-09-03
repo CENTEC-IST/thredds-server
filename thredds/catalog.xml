@@ -14,4 +14,6 @@
   </service>
 
   <catalogRef xlink:title="ERA5" xlink:href="ERA5_Catalog.xml" name=""/>
+  <catalogRef xlink:title="WAVERYS" xlink:href="WAVERYS_Catalog.xml" name=""/>
+  <catalogRef xlink:title="IFREMER" xlink:href="IFREMER_Catalog.xml" name=""/>
 </catalog>

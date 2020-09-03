@@ -51,9 +51,22 @@ services:
               target: /usr/local/tomcat/content/thredds/logs/
 
               # ========================  DATA
+              #  ERA 5
             - type: bind
               source: /media/degas/model/ECMWF/ERA5/
               target: /usr/local/tomcat/content/thredds/public/ERA5/
+              read_only: true
+              
+              #  WAVERYS
+            - type: bind
+              source: /media/degas/model/WAVERYS/
+              target: /usr/local/tomcat/content/thredds/public/WAVERYS/
+              read_only: true
+              
+              #  WAVERYS
+            - type: bind
+              source: /media/degas/model/IFREMER/
+              target: /usr/local/tomcat/content/thredds/public/IFREMER/
               read_only: true
 
         env_file:

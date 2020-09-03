@@ -6,13 +6,8 @@
     <service name="wms" serviceType="WMS" base="/thredds/wms/"/>
     <service name="ncss" serviceType="NetcdfSubset" base="/thredds/ncss/"/>
   </service>
-  <service name="dap" base="" serviceType="compound">
-    <service name="odap" serviceType="OpenDAP" base="/thredds/dodsC/"/>
-    <service name="dap4" serviceType="DAP4" base="/thredds/dap4/"/>
-  </service>
 
-
-  <datasetScan name="ERA5" ID="era5scan" path="era5" location="content/ERA5/old" harvest="true">
+  <datasetScan name="ERA5" ID="era5scan" path="ERA5" location="content/ERA5/old" harvest="true">
     <metadata inherited="true">
       <documentation type="summary">The ERA5 HRES atmospheric data has a resolution of 31km, 0.28125 degrees, and the EDA has a resolution of 63km, 0.5625 degrees. (Depending on the parameter, the data are archived either as spectral coefficients with a triangular truncation of T639 (HRES) and T319 (EDA) or on a reduced Gaussian grid with a resolution of N320 (HRES) and N160 (EDA). These grids are so called "linear grids", sometimes referred to as TL639 (HRES) and TL319 (EDA).)</documentation>
       <documentation type="rights">Freely available</documentation>
@@ -24,29 +19,6 @@
       <!-- <name vocabulary="DIF">ECMWF/ERA5</name> -->
       <!-- <contact url="https://www.ecmwf.int" email="https://www.ecmwf.int/en/about/contact-us"/> -->
       <!-- </publisher> -->
-      <geospatialCoverage>
-        <northsouth>
-          <start>-77.34375</start>
-          <size>167</size>
-          <units>degrees_north</units>
-        </northsouth>
-        <eastwest>
-          <start>-101.8125</start>
-          <size>131.625</size>
-          <units>degrees_east</units>
-        </eastwest>
-        <updown>
-          <start>0.0</start>
-          <size>0.0</size>
-          <units>km</units>
-        </updown>
-      </geospatialCoverage>
-      <variables vocabulary="netCDF"/>
-      <variables vocabulary="Variables">
-        <variable name="10u" vocabulary_name="" units="m/s">10 Meter U Wind Component</variable>
-        <variable name="10v" vocabulary_name="" units="m/s">10 Meter V Wind Component</variable>
-        <variable name="swh" vocabulary_name="" units="m">Significant height of combined wind waves and swell</variable>
-      </variables>
     </metadata>
     <filter>
       <include wildcard="*.era5.*.nc"/>
@@ -57,19 +29,23 @@
     </sort>
     <addLatest/>
     <addDatasetSize/>
-    <!-- <addTimeCoverage datasetNameMatchPattern="....era5.([0-9]{4})([0-9]{2}).nc$" startTimeSubstitutionPattern="$1-$2-01T00:00:00" duration="744 hours"/> -->
     <metadata inherited="true">
       <serviceName>all</serviceName>
       <dataType>Grid</dataType>
     </metadata>
   </datasetScan>
 
-  <featureCollection name="ERA5 Feature Collection" featureType="FMRC" harvest="true" path="ERA5/time">
+  <featureCollection name="ERA5 Collection" featureType="FMRC" harvest="true" path="ERA5_collection">
     <metadata inherited="true">
       <serviceName>all</serviceName>
       <dataType>Grid</dataType>
       <dataFormat>NetCDF</dataFormat>
     </metadata>
 	<collection spec="/usr/local/tomcat/content/thredds/public/ERA5/old/**/10u......#yyyyMM#\.nc" recheckAfter="15 min" olderThan="5 min"/>
+
+		<!-- TODO ADD THIS WHEN CORRECTLY TESTED -->
+	<!-- <update startup="true" rescan="0 0/5 * * * ? *" trigger="allow"/> -->
+	<!-- <fmrcConfig regularize="false" datasetTypes="Best" /> -->
+
   </featureCollection>
 </catalog>

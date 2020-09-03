@@ -12,8 +12,6 @@
     <service name="odap" serviceType="OpenDAP" base="/thredds/dodsC/"/>
     <service name="dap4" serviceType="DAP4" base="/thredds/dap4/"/>
   </service>
-  <!-- <datasetRoot path="test" location="content/testdata/" /> -->
-  <!-- <dataset name="Test Single Dataset" ID="testDataset" -->
-  <!--          serviceName="dap"  urlPath="test/testData.nc" dataType="Grid"/> -->
-  <catalogRef xlink:title="ERA5" xlink:href="era5Catalog.xml" name=""/>
+
+  <catalogRef xlink:title="ERA5" xlink:href="ERA5_Catalog.xml" name=""/>
 </catalog>

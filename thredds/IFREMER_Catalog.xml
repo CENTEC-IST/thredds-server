@@ -33,6 +33,6 @@
       <dataType>Grid</dataType>
       <dataFormat>NetCDF</dataFormat>
     </metadata>
-	<collection spec="/usr/local/tomcat/content/thredds/public/IFREMER/data/ww3Ifremer__#yyyyMM#\.nc" recheckAfter="15 min" olderThan="5 min"/>
+	<collection spec="/usr/local/tomcat/content/thredds/public/IFREMER/data/ww3Ifremer_#yyyyMM#\.nc" recheckAfter="15 min" olderThan="5 min"/>
   </featureCollection>
 </catalog>

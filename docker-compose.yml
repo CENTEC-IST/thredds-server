@@ -68,6 +68,18 @@ services:
               source: /media/degas/model/IFREMER/
               target: /usr/local/tomcat/content/thredds/public/IFREMER/
               read_only: true
+              
+              #  CFSR
+            - type: bind
+              source: /media/monet/public/model/hindcast/NCEP/atmos/CFSR/
+              target: /usr/local/tomcat/content/thredds/public/CFSR/
+              read_only: true
+              
+              #  CFSv2
+            - type: bind
+              source: /media/monet/public/model/hindcast/NCEP/atmos/CFSv2/
+              target: /usr/local/tomcat/content/thredds/public/CFSv2/
+              read_only: true
 
         env_file:
             - "compose.env"
@@ -94,11 +106,35 @@ services:
               source: ./tdm/
               target: /usr/local/tomcat/content/tdm/
 
-            # ========================  DATA
-            #
+              # ========================  DATA
+              #  ERA 5
             - type: bind
               source: /media/degas/model/ECMWF/ERA5/
               target: /usr/local/tomcat/content/thredds/public/ERA5/
+              read_only: true
+              
+              #  WAVERYS
+            - type: bind
+              source: /media/degas/model/WAVERYS/
+              target: /usr/local/tomcat/content/thredds/public/WAVERYS/
+              read_only: true
+              
+              #  WAVERYS
+            - type: bind
+              source: /media/degas/model/IFREMER/
+              target: /usr/local/tomcat/content/thredds/public/IFREMER/
+              read_only: true
+              
+              #  CFSR
+            - type: bind
+              source: /media/monet/public/model/hindcast/NCEP/atmos/CFSR/
+              target: /usr/local/tomcat/content/thredds/public/CFSR/
+              read_only: true
+              
+              #  CFSv2
+            - type: bind
+              source: /media/monet/public/model/hindcast/NCEP/atmos/CFSv2/
+              target: /usr/local/tomcat/content/thredds/public/CFSv2/
               read_only: true
         env_file:
             - "compose.env"

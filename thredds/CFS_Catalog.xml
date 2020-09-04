@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="http://www.unidata.ucar.edu/namespaces/thredds/InvCatalog/v1.0" xmlns:xlink="http://www.w3.org/1999/xlink" name="Unidata THREDDS-IDD NetCDF-OpenDAP Server" version="1.0.1">
+  <service name="all" base="" serviceType="compound">
+    <service name="odap" serviceType="OpenDAP" base="/thredds/dodsC/"/>
+    <service name="wcs" serviceType="WCS" base="/thredds/wcs/"/>
+    <service name="wms" serviceType="WMS" base="/thredds/wms/"/>
+    <service name="ncss" serviceType="NetcdfSubset" base="/thredds/ncss/"/>
+  </service>
+
+  <datasetScan name="CFSR" ID="CFSR" path="CFSR" location="content/CFSR" harvest="true">
+    <metadata inherited="true">
+      <documentation type="summary">PLACEHOLDER</documentation>
+      <documentation type="rights">Freely available</documentation>
+    </metadata>
+    <filter>
+      <include wildcard="*.nc"/>
+    </filter>
+    <addID/>
+    <sort>
+      <lexigraphicByName increasing="false"/>
+    </sort>
+    <addLatest/>
+    <addDatasetSize/>
+    <metadata inherited="true">
+      <serviceName>all</serviceName>
+      <dataType>Grid</dataType>
+    </metadata>
+  </datasetScan>
+
+  <featureCollection name="CFSR Collection" featureType="FMRC" harvest="true" path="CFSR_collection/">
+    <metadata inherited="true">
+      <serviceName>all</serviceName>
+      <dataType>Grid</dataType>
+      <dataFormat>NetCDF</dataFormat>
+    </metadata>
+	<collection spec="/usr/local/tomcat/content/thredds/public/CFSR/icecon.gdas.#yyyyMMdd#\.nc" recheckAfter="15 min" olderThan="5 min"/>
+  </featureCollection>
+
+  <datasetScan name="CFSv2" ID="CFSv2" path="CFSv2" location="content/CFSv2" harvest="true">
+    <metadata inherited="true">
+      <documentation type="summary">PLACEHOLDER</documentation>
+      <documentation type="rights">Freely available</documentation>
+    </metadata>
+    <filter>
+      <include wildcard="*.nc"/>
+    </filter>
+    <addID/>
+    <sort>
+      <lexigraphicByName increasing="false"/>
+    </sort>
+    <addLatest/>
+    <addDatasetSize/>
+    <metadata inherited="true">
+      <serviceName>all</serviceName>
+      <dataType>Grid</dataType>
+    </metadata>
+  </datasetScan>
+
+  <featureCollection name="CFSv2 Collection" featureType="FMRC" harvest="true" path="CFSR_collection/">
+    <metadata inherited="true">
+      <serviceName>all</serviceName>
+      <dataType>Grid</dataType>
+      <dataFormat>NetCDF</dataFormat>
+    </metadata>
+	<collection spec="/usr/local/tomcat/content/thredds/public/CFSv2/icecon.gdas.#yyyyMMdd#\.nc" recheckAfter="15 min" olderThan="5 min"/>
+  </featureCollection>
+</catalog>

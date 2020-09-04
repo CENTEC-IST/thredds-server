@@ -33,7 +33,8 @@
       <dataType>Grid</dataType>
       <dataFormat>NetCDF</dataFormat>
     </metadata>
-	<collection spec="/usr/local/tomcat/content/thredds/public/CFSR/icecon.gdas.#yyyyMMdd#\.nc" recheckAfter="15 min" olderThan="5 min"/>
+	<collection spec="/usr/local/tomcat/content/thredds/public/CFSR/icecon.gdas.#yyyyMMdd#\.nc" olderThan="5 min"/>
+	<update startup="true" rescan="* 0 0 * * ? *" trigger="allow"/>
   </featureCollection>
 
   <datasetScan name="CFSv2" ID="CFSv2" path="CFSv2" location="content/CFSv2" harvest="true">
@@ -62,6 +63,7 @@
       <dataType>Grid</dataType>
       <dataFormat>NetCDF</dataFormat>
     </metadata>
-	<collection spec="/usr/local/tomcat/content/thredds/public/CFSv2/icecon.gdas.#yyyyMMdd#\.nc" recheckAfter="15 min" olderThan="5 min"/>
+	<collection spec="/usr/local/tomcat/content/thredds/public/CFSv2/icecon.gdas.#yyyyMMdd#\.nc" olderThan="5 min"/>
+	<update startup="true" rescan="* 0 0 * * ? *" trigger="allow"/>
   </featureCollection>
 </catalog>

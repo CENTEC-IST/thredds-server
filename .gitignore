@@ -1,6 +1,5 @@
 # DIRETORIES
 logs/*
-data_files/*
 thredds/cache/*
 thredds/logs/*
 thredds/public/*

@@ -6,7 +6,6 @@
     <service name="wms" serviceType="WMS" base="/thredds/wms/"/>
     <service name="ncss" serviceType="NetcdfSubset" base="/thredds/ncss/"/>
   </service>
-
   <datasetScan name="CFSR" ID="CFSR" path="CFSR" location="content/CFSR" harvest="true">
     <metadata inherited="true">
       <documentation type="summary">PLACEHOLDER</documentation>
@@ -26,17 +25,15 @@
       <dataType>Grid</dataType>
     </metadata>
   </datasetScan>
-
   <featureCollection name="CFSR Collection" featureType="FMRC" harvest="true" path="CFSR_collection/">
     <metadata inherited="true">
       <serviceName>all</serviceName>
       <dataType>Grid</dataType>
       <dataFormat>NetCDF</dataFormat>
     </metadata>
-	<collection spec="/usr/local/tomcat/content/thredds/public/CFSR/.*\.gdas.#yyyyMMdd#\.nc" olderThan="5 min"/>
-	<update startup="true" rescan="* 0 0 * * ? *" trigger="allow"/>
+    <collection spec="/usr/local/tomcat/content/thredds/public/CFSR/.*\.gdas.#yyyyMMdd#\.nc" olderThan="5 min"/>
+    <update startup="true" rescan="* 30 1 * * ? *" trigger="allow"/>
   </featureCollection>
-
   <datasetScan name="CFSv2" ID="CFSv2" path="CFSv2" location="content/CFSv2" harvest="true">
     <metadata inherited="true">
       <documentation type="summary">PLACEHOLDER</documentation>
@@ -56,14 +53,13 @@
       <dataType>Grid</dataType>
     </metadata>
   </datasetScan>
-
   <featureCollection name="CFSv2 Collection" featureType="FMRC" harvest="true" path="CFSR_collection/">
     <metadata inherited="true">
       <serviceName>all</serviceName>
       <dataType>Grid</dataType>
       <dataFormat>NetCDF</dataFormat>
     </metadata>
-	<collection spec="/usr/local/tomcat/content/thredds/public/CFSv2/.*\.gdas.#yyyyMMdd#\.nc" olderThan="5 min"/>
-	<update startup="true" rescan="* 0 0 * * ? *" trigger="allow"/>
+    <collection spec="/usr/local/tomcat/content/thredds/public/CFSv2/.*\.gdas.#yyyyMMdd#\.nc" olderThan="5 min"/>
+    <update startup="true" rescan="* 0 2 * * ? *" trigger="allow"/>
   </featureCollection>
 </catalog>

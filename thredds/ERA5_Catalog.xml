@@ -6,7 +6,6 @@
     <service name="wms" serviceType="WMS" base="/thredds/wms/"/>
     <service name="ncss" serviceType="NetcdfSubset" base="/thredds/ncss/"/>
   </service>
-
   <datasetScan name="ERA5" ID="era5scan" path="ERA5" location="content/ERA5/" harvest="true">
     <metadata inherited="true">
       <documentation type="summary">The ERA5 HRES atmospheric data has a resolution of 31km, 0.28125 degrees, and the EDA has a resolution of 63km, 0.5625 degrees. (Depending on the parameter, the data are archived either as spectral coefficients with a triangular truncation of T639 (HRES) and T319 (EDA) or on a reduced Gaussian grid with a resolution of N320 (HRES) and N160 (EDA). These grids are so called "linear grids", sometimes referred to as TL639 (HRES) and TL319 (EDA).)</documentation>
@@ -26,17 +25,14 @@
       <dataType>Grid</dataType>
     </metadata>
   </datasetScan>
-
   <featureCollection name="ERA5 Collection" featureType="FMRC" harvest="true" path="ERA5_collection">
     <metadata inherited="true">
       <serviceName>all</serviceName>
       <dataType>Grid</dataType>
       <dataFormat>NetCDF</dataFormat>
     </metadata>
-	<collection spec="/usr/local/tomcat/content/thredds/public/ERA5/**/.*\.era5\.#yyyyMM#\.nc" olderThan="5 min"/>
-
-	<update startup="true" rescan="* 0 0 * * ? *" trigger="allow"/>
-	<!-- <fmrcConfig regularize="false" datasetTypes="Best" /> -->
-
+    <collection spec="/usr/local/tomcat/content/thredds/public/ERA5/**/.*\.era5\.#yyyyMM#\.nc" olderThan="5 min"/>
+    <update startup="true" rescan="* 0 0 * * ? *" trigger="allow"/>
+    <!-- <fmrcConfig regularize="false" datasetTypes="Best" /> -->
   </featureCollection>
 </catalog>

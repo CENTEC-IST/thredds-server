@@ -12,7 +12,6 @@
     <service name="odap" serviceType="OpenDAP" base="/thredds/dodsC/"/>
     <service name="dap4" serviceType="DAP4" base="/thredds/dap4/"/>
   </service>
-
   <catalogRef xlink:title="ERA5" xlink:href="ERA5_Catalog.xml" name=""/>
   <catalogRef xlink:title="WAVERYS" xlink:href="WAVERYS_Catalog.xml" name=""/>
   <catalogRef xlink:title="IFREMER" xlink:href="IFREMER_Catalog.xml" name=""/>

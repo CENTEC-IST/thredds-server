@@ -6,7 +6,6 @@
     <service name="wms" serviceType="WMS" base="/thredds/wms/"/>
     <service name="ncss" serviceType="NetcdfSubset" base="/thredds/ncss/"/>
   </service>
-
   <datasetScan name="IFREMER" ID="IFREMER" path="IFREMER" location="content/IFREMER/data" harvest="true">
     <metadata inherited="true">
       <documentation type="summary">PLACEHOLDER</documentation>
@@ -26,14 +25,13 @@
       <dataType>Grid</dataType>
     </metadata>
   </datasetScan>
-
   <featureCollection name="IFREMER Collection" featureType="FMRC" harvest="true" path="IFREMER_collection/">
     <metadata inherited="true">
       <serviceName>all</serviceName>
       <dataType>Grid</dataType>
       <dataFormat>NetCDF</dataFormat>
     </metadata>
-	<collection spec="/usr/local/tomcat/content/thredds/public/IFREMER/data/ww3Ifremer_#yyyyMM#\.nc" olderThan="5 min"/>
-	<update startup="true" rescan="* 0 0 * * ? *" trigger="allow"/>
+    <collection spec="/usr/local/tomcat/content/thredds/public/IFREMER/data/ww3Ifremer_#yyyyMM#\.nc" olderThan="5 min"/>
+    <update startup="true" rescan="* 0 1 * * ? *" trigger="allow"/>
   </featureCollection>
 </catalog>

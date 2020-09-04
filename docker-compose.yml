@@ -10,26 +10,11 @@ services:
             - "8443:8443"
         container_name: thredds
         volumes:
-            # LINK CONFIGS (make them read only to be easier to edit on host)
-            - type: bind
+            # LINK CONFIGS
+            - type: bind # link threddsConfig separetly because the docker container changes permissions on this file inside /thredds
               source: ./threddsConfig.xml
               target: /usr/local/tomcat/content/thredds/threddsConfig.xml
-              read_only: true
-
-            # - type: bind
-            #   source: ./thredds/catalog.xml
-            #   target: /usr/local/tomcat/content/thredds/catalog.xml
-            #   read_only: true
-
-            # - type: bind
-            #   source: ./thredds/enhancedCatalog.xml
-            #   target: /usr/local/tomcat/content/thredds/enhancedCatalog.xml
-            #   read_only: true
-
-            # - type: bind
-            #   source: ./thredds/wmsConfig.xml
-            #   target: /usr/local/tomcat/content/thredds/wmsConfig.xml
-            #   read_only: true
+              read_only: true 
 
             - type: bind
               source: ./tomcat-users.xml

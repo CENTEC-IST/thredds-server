@@ -2,7 +2,7 @@
 logs/*
 thredds/cache/*
 thredds/logs/*
-thredds/public/*
+thredds/public/data/*
 thredds/threddsConfig.xml
 
 # FILES

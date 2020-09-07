@@ -39,31 +39,31 @@ services:
               #  ERA 5
             - type: bind
               source: /media/degas/model/ECMWF/ERA5/
-              target: /usr/local/tomcat/content/thredds/public/ERA5/
+              target: /usr/local/tomcat/content/thredds/public/data/ERA5/
               read_only: true
               
               #  WAVERYS
             - type: bind
               source: /media/degas/model/WAVERYS/
-              target: /usr/local/tomcat/content/thredds/public/WAVERYS/
+              target: /usr/local/tomcat/content/thredds/public/data/WAVERYS/
               read_only: true
               
               #  WAVERYS
             - type: bind
               source: /media/degas/model/IFREMER/
-              target: /usr/local/tomcat/content/thredds/public/IFREMER/
+              target: /usr/local/tomcat/content/thredds/public/data/IFREMER/
               read_only: true
               
               #  CFSR
             - type: bind
               source: /media/monet/public/model/hindcast/NCEP/atmos/CFSR/
-              target: /usr/local/tomcat/content/thredds/public/CFSR/
+              target: /usr/local/tomcat/content/thredds/public/data/CFSR/
               read_only: true
               
               #  CFSv2
             - type: bind
               source: /media/monet/public/model/hindcast/NCEP/atmos/CFSv2/
-              target: /usr/local/tomcat/content/thredds/public/CFSv2/
+              target: /usr/local/tomcat/content/thredds/public/data/CFSv2/
               read_only: true
 
         env_file:
@@ -95,31 +95,31 @@ services:
               #  ERA 5
             - type: bind
               source: /media/degas/model/ECMWF/ERA5/
-              target: /usr/local/tomcat/content/thredds/public/ERA5/
+              target: /usr/local/tomcat/content/thredds/public/data/ERA5/
               read_only: true
               
               #  WAVERYS
             - type: bind
               source: /media/degas/model/WAVERYS/
-              target: /usr/local/tomcat/content/thredds/public/WAVERYS/
+              target: /usr/local/tomcat/content/thredds/public/data/WAVERYS/
               read_only: true
               
               #  WAVERYS
             - type: bind
               source: /media/degas/model/IFREMER/
-              target: /usr/local/tomcat/content/thredds/public/IFREMER/
+              target: /usr/local/tomcat/content/thredds/public/data/IFREMER/
               read_only: true
               
               #  CFSR
             - type: bind
               source: /media/monet/public/model/hindcast/NCEP/atmos/CFSR/
-              target: /usr/local/tomcat/content/thredds/public/CFSR/
+              target: /usr/local/tomcat/content/thredds/public/data/CFSR/
               read_only: true
               
               #  CFSv2
             - type: bind
               source: /media/monet/public/model/hindcast/NCEP/atmos/CFSv2/
-              target: /usr/local/tomcat/content/thredds/public/CFSv2/
+              target: /usr/local/tomcat/content/thredds/public/data/CFSv2/
               read_only: true
         env_file:
             - "compose.env"

@@ -6,7 +6,7 @@
     <service name="wms" serviceType="WMS" base="/thredds/wms/"/>
     <service name="ncss" serviceType="NetcdfSubset" base="/thredds/ncss/"/>
   </service>
-  <datasetScan name="WAVERYS" ID="WAVERYS" path="WAVERYS" location="content/WAVERYS" harvest="true">
+  <datasetScan name="WAVERYS" ID="WAVERYS" path="WAVERYS" location="content/data/WAVERYS" harvest="true">
     <metadata inherited="true">
       <documentation type="summary">PLACEHOLDER</documentation>
       <documentation type="rights">Freely available</documentation>

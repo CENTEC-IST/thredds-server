@@ -71,7 +71,15 @@ table a:visited {
 	color: var(--bg1);
 }
 
+table a:link {
+	color: var(--bg1);
+}
+
 tr:nth-child(odd) a:visited{
+	color: #fff;
+}
+
+tr:nth-child(odd) a:link{
 	color: #fff;
 }
 
@@ -84,4 +92,5 @@ tr:first-child
 td {
 	padding: 8px 20px 8px 5px;
 }
+
 

@@ -6,7 +6,7 @@
     <service name="wms" serviceType="WMS" base="/thredds/wms/"/>
     <service name="ncss" serviceType="NetcdfSubset" base="/thredds/ncss/"/>
   </service>
-  <datasetScan name="CFSR" ID="CFSR" path="CFSR" location="content/CFSR" harvest="true">
+  <datasetScan name="CFSR" ID="CFSR" path="CFSR" location="content/data/CFSR" harvest="true">
     <metadata inherited="true">
       <documentation type="summary">PLACEHOLDER</documentation>
       <documentation type="rights">Freely available</documentation>
@@ -34,7 +34,7 @@
 	<collection spec="/usr/local/tomcat/content/thredds/public/data/CFSR/.*gdas.*\.nc" dateFormatMark="yyyyMM#.nc#$" olderThan="5 min"/>
     <update startup="true" rescan="* 30 1 * * ? *" trigger="allow"/>
   </featureCollection>
-  <datasetScan name="CFSv2" ID="CFSv2" path="CFSv2" location="content/CFSv2" harvest="true">
+  <datasetScan name="CFSv2" ID="CFSv2" path="CFSv2" location="content/data/CFSv2" harvest="true">
     <metadata inherited="true">
       <documentation type="summary">PLACEHOLDER</documentation>
       <documentation type="rights">Freely available</documentation>

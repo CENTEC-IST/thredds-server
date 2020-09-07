@@ -1,6 +1,6 @@
 :root {
 	--bg1: #002d40;
-	--bg2: #1aa6b7;
+	--bg2: #1da2d8;
 	--light: #d9ecf2;
 }
 
@@ -17,7 +17,9 @@ th {
 	font-family: monospace;
 	color: #fff;
 	background: var(--bg2);
-	height: 30px;
+	border-top: 1px solid var(--bg1);
+	border-bottom: 1px solid var(--bg1);
+	height: 28px;
 	padding-left: 25px;
 }
 
@@ -28,8 +30,6 @@ th font {
 h1 {
 	margin: 0px;
 	background-color: #fff;
-	border-left: 10px solid var(--bg2);
-	border-right: 10px solid var(--bg2);
 	color: var(--bg1);
 	padding-top: 30px;
 	padding-bottom: 10px;
@@ -44,8 +44,8 @@ h1 {
 h3 {
 	background-color: var(--bg1);
 	color: var(--bg2);
-	font-size: 14px;
-	text-align: right;
+	font-size: 18px;
+	text-align: center;
 }
 
 h3 a:visited {
@@ -58,8 +58,6 @@ hr {
 
 table {
 	background-color: var(--light);
-	border-left: 10px solid var(--bg2);
-	border-right: 10px solid var(--bg2);
 	border-collapse:collapse;
 }
 
@@ -83,14 +81,12 @@ tr:nth-child(odd) a:link{
 	color: #fff;
 }
 
-tr:first-child
-{
-	background-color: #eea52b;
-	height: 20px;
-}
-
 td {
 	padding: 8px 20px 8px 5px;
 }
 
+td img {
+	vertical-align: middle;
+	padding-right: 4px;
+}
 

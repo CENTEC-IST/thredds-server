@@ -1,0 +1,43 @@
+#!/bin/bash
+
+if [[ "$1" = "help" || "$1" = "-help" || "$1" = "--help" || "$1" = "-h" ]]; then
+	echo "This script will open an iPython console with the supplied files opened as a netCDF4 dataset.
+
+	Usage:
+		nc-ipython [nc file] [nc file] ..."
+	exit
+fi
+
+/home/rmc/progs/python/anaconda3/bin/ipython --no-banner --no-confirm-exit -i -c """
+import sys
+import os
+import netCDF4 as nc
+
+args = sys.argv[6:]
+
+if not args:
+	print(\"Give me a netCDF file\")
+	os._exit(1)
+
+if len(args) == 1:
+	try:
+		data = nc.Dataset(args[0])
+	except FileNotFoundError:
+		print(\"File not found \" + args[0])
+		os._exit(1)
+else:
+	data = []
+	for a in args:
+		try:
+			data.append(nc.Dataset(a))
+		except FileNotFoundError:
+			print(\"File not found \" + a)
+			os._exit(1)
+
+if type(data) == list:
+	print(\"\033[31mUse '\033[1;32margs\033[31m' to access supplied arguments and '\033[1;32mdata[n]\033[31m' to acess the nth netCDF4 data file\033[m\")
+else:
+	print(\"\033[31mUse '\033[1;32margs\033[31m' to access supplied arguments and '\033[1;32mdata\033[31m' to acess the netCDF4 data file\033[m\")
+""" $@
+
+

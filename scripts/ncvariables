@@ -1,0 +1,57 @@
+#!/home/rmc/progs/python/anaconda3/bin/python3
+
+import sys
+import netCDF4 as nc
+
+DIMENSIONS=("time", "lat", "latitude", "lon", "longitude")
+
+# CHANGE HERE
+EXTRACT_VAR = {'Long Name' : 'long_name',
+               'Units' : 'units'}
+
+def print_table(header, data, spacing=3):
+    sizes = []
+    for i, v in enumerate(header):
+        sizes.append(max(len(k[i]) for k in data+[header]))
+
+    for i, row in enumerate([header]+data):
+        if i == 1: print('-'*(sum(sizes)+len(sizes)*spacing))
+        for k, value in enumerate(row):
+            print(f"{value:<{sizes[k]+spacing}}", end='')
+        print()
+
+
+if len(sys.argv) == 1 or any(item in ("help", "-help", "--help", "-h") for item in sys.argv):
+    print("""This script will print a list of variables inside a netCDF4 file.
+
+    Usage:
+        nc-variables [nc file] [nc file] ...""")
+    sys.exit()
+
+for f in sys.argv[1:]:
+    try:
+        data = nc.Dataset(f)
+    except FileNotFoundError:
+        print(f"File not found '{f}'")
+        sys.exit(1)
+    except OSError:
+        print(f"File given is not a netCDF file: '{f}'")
+        sys.exit(1)
+
+    var_info = []
+    dim_info = []
+
+    for v in data.variables:
+        d = [v]
+        d.extend([data.variables[v].__dict__[key] if key in data.variables[v].__dict__ else "" for key in EXTRACT_VAR.values()])
+
+        if v in DIMENSIONS:
+            d.append(str(len(data.variables[v])))
+            dim_info.append(d)
+        else:
+            var_info.append(d)
+
+    print('\033[1;32mVARIABLES:\033[m')
+    print_table([''] + list(EXTRACT_VAR.keys()), var_info)
+    print('\n\033[1;32mDIMENSIONS:\033[m')
+    print_table([''] + list(EXTRACT_VAR.keys()) + ['Size'], dim_info)

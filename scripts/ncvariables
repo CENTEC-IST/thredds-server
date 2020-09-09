@@ -25,10 +25,21 @@ if len(sys.argv) == 1 or any(item in ("help", "-help", "--help", "-h") for item 
     print("""This script will print a list of variables inside a netCDF4 file.
 
     Usage:
-        nc-variables [nc file] [nc file] ...""")
+        nc-variables -[vd] [nc file] [nc file] ...
+
+    -v      Show only variables
+    -d      Show only dimensions""")
     sys.exit()
 
-for f in sys.argv[1:]:
+files = []
+var_only = False
+dim_only = False
+for a in sys.argv[1:]:
+    if a == '-v': var_only = True       
+    elif a == '-d': dim_only = True     
+    else: files.append(a)
+
+for f in files:
     try:
         data = nc.Dataset(f)
     except FileNotFoundError:
@@ -42,16 +53,20 @@ for f in sys.argv[1:]:
     dim_info = []
 
     for v in data.variables:
-        d = [v]
-        d.extend([data.variables[v].__dict__[key] if key in data.variables[v].__dict__ else "" for key in EXTRACT_VAR.values()])
-
         if v in DIMENSIONS:
-            d.append(str(len(data.variables[v])))
+            d = [v, data.variables[v].units, str(len(data.variables[v]))]
             dim_info.append(d)
         else:
+            d = [v]
+            d.extend([data.variables[v].__dict__[key]
+                if key in data.variables[v].__dict__ else ""
+                for key in EXTRACT_VAR.values()])
             var_info.append(d)
 
-    print('\033[1;32mVARIABLES:\033[m')
-    print_table([''] + list(EXTRACT_VAR.keys()), var_info)
-    print('\n\033[1;32mDIMENSIONS:\033[m')
-    print_table([''] + list(EXTRACT_VAR.keys()) + ['Size'], dim_info)
+    if not dim_only:
+        print('\033[1;32mVARIABLES:\033[m')
+        print_table([''] + list(EXTRACT_VAR.keys()), var_info)
+        print()
+    if not var_only:
+        print('\033[1;32mDIMENSIONS:\033[m')
+        print_table(['', 'Units', 'Size'], dim_info)

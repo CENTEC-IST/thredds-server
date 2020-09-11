@@ -1,9 +1,11 @@
-# DIRETORIES
+# DIRECTORIES
 logs/*
 thredds/cache/*
 thredds/logs/*
 thredds/public/data/*
 thredds/threddsConfig.xml
+
+scripts/extractPoint/out/*
 
 # FILES
 tdm/tdm.log

@@ -1,5 +1,5 @@
--32.217883	-51.999440	RioGrande
 -27.537261	-48.231278	Florianopolis
+-32.217883	-51.999440	RioGrande
 -27.032127	-48.433715	PortoBelo
 -26.958296	-48.436720	BalnearioCamburiu
 -26.894460	-48.437237	Itajai

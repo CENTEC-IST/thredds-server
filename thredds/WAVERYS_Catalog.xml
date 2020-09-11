@@ -6,26 +6,26 @@
     <service name="wms" serviceType="WMS" base="/thredds/wms/"/>
     <service name="ncss" serviceType="NetcdfSubset" base="/thredds/ncss/"/>
   </service>
-  <datasetScan name="WAVERYS" ID="WAVERYS" path="WAVERYS" location="content/data/WAVERYS" harvest="true">
-    <metadata inherited="true">
-      <documentation type="summary">PLACEHOLDER</documentation>
-      <documentation type="rights">Freely available</documentation>
-    </metadata>
-    <filter>
-      <include wildcard="*.nc"/>
-    </filter>
-    <addID/>
-    <sort>
-      <lexigraphicByName increasing="false"/>
-    </sort>
-    <addLatest/>
-    <addDatasetSize/>
-    <metadata inherited="true">
-      <serviceName>all</serviceName>
-      <dataType>Grid</dataType>
-    </metadata>
-  </datasetScan>
-  <featureCollection name="WAVERYS Collection" featureType="FMRC" harvest="true" path="WAVERYS_collection/">
+  <!-- <datasetScan name="WAVERYS" ID="WAVERYS" path="WAVERYS" location="content/data/WAVERYS" harvest="true"> -->
+  <!--   <metadata inherited="true"> -->
+  <!--     <documentation type="summary">PLACEHOLDER</documentation> -->
+  <!--     <documentation type="rights">Freely available</documentation> -->
+  <!--   </metadata> -->
+  <!--   <filter> -->
+  <!--     <include wildcard="*.nc"/> -->
+  <!--   </filter> -->
+  <!--   <addID/> -->
+  <!--   <sort> -->
+  <!--     <lexigraphicByName increasing="false"/> -->
+  <!--   </sort> -->
+  <!--   <addLatest/> -->
+  <!--   <addDatasetSize/> -->
+  <!--   <metadata inherited="true"> -->
+  <!--     <serviceName>all</serviceName> -->
+  <!--     <dataType>Grid</dataType> -->
+  <!--   </metadata> -->
+  <!-- </datasetScan> -->
+  <featureCollection name="WAVERYS" featureType="FMRC" harvest="true" path="WAVERYS/">
     <metadata inherited="true">
       <serviceName>all</serviceName>
       <dataType>Grid</dataType>

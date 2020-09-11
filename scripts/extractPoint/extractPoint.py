@@ -48,6 +48,7 @@ def load_points(filename):
 def query_thredds_opendap(endpoint=URL_ENDPOINT, verbose=False, **var_query):
 	'''Query the opendap endpoint for a certain variable with given parameters:
 	The variable must be a named function argument and the parameters must be a tuple or list of tuples
+	The tuple can have up to 3 values and the following combinations (start, step, end), (start, end), (start)
 	Example:
 		- Querying longitude and latitude:
 		query_thredds_opendap(enpoint, longitude=(0,1799), latitude(0,10,898))

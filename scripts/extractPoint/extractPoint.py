@@ -5,16 +5,16 @@ import numpy as np
 from geopy import distance
 from datetime import datetime, timedelta
 import time
-import os
+import os, sys
 
 from threading import Thread
 import queue
 
-
-URL_ENDPOINT = "http://193.136.153.163/thredds/dodsC/WAVERYS_collection/WAVERYS_Collection_fmrc.ncd"
+URL_ENDPOINT = "http://193.136.153.163/thredds/dodsC/WAVERYS/WAVERYS_fmrc.ncd"
 RADIUS = 40 # radius in km
-CHUNK_SIZE = 60 # size of each request
+CHUNK_SIZE = 30 # size of each request
 OUTPUT_DIR = 'out/'
+VARIABLE = 'VHM0'
 
 def threaded(function, daemon=False):
 	'''Decorator to make a function threaded
@@ -92,10 +92,12 @@ def get_nearest_points(points, point, radius):
 	return indexes
 
 def wf(pdist):
-	a=(1 - pdist / 40.0)
+	'''Weight function based on distance'''
+	a=(1 - pdist / RADIUS)
 	return (abs(a)+a)/2
 
 def nanaverage(A,weights):
+	'''Function to calculate weighted average and ignore nan values'''
 	return np.nansum(A*weights)/((~np.isnan(A))*weights).sum()
 
 def process_data(data, point, variable, weight_function=wf):
@@ -119,17 +121,18 @@ def process_data(data, point, variable, weight_function=wf):
 
 	# makes requests in sizes of CHUNK_SIZE. ex if CHUNK_SIZE=20 and size=47 -> [0,20] [20,40] [40,47]
 	for mi, ma in ((i,i+(CHUNK_SIZE if size-i>CHUNK_SIZE else size-i)) for i in range(0,size,CHUNK_SIZE)):
+		print(f"Requesting {variable} data for {point[2]} [{ma:>4}/{size}]: ", end='')
+		sys.stdout.flush()
 		t = time.time()
-		tmp_data = data.variables[variable][mi:ma]
-		print('Request:',  time.time() - t)
+		tmp_data = data.variables[variable][mi:ma] # Request data
+		print(time.time() - t)
 
 		with open(f"{OUTPUT_DIR}{point[-1]}.txt", 'a') as fp:
 			for i in range(len(tmp_data)):
 				for j in range(d.variables['time'].shape[1]):
-					x = nanaverage(tmp_data[i][j], weights)
+					x = nanaverage(tmp_data[i][j], weights) # Calculate weighted average
 					tx = basedate+timedelta(**{timestep:times[mi+i][j]})
-					fp.write(f"{str(tx)}   {str(x)}\n")
-	
+					fp.write(f"{str(tx)}   {str(x)}\n") # Write to file
 
 # ==============================================
 #                   MAIN
@@ -146,6 +149,8 @@ LONGITUDE = 'lon' if 'lon' in data.variables else 'longitude'
 # Get the size of each coordinate
 lat_size = data.variables[LATITUDE].size
 lon_size = data.variables[LONGITUDE].size
+# Get size of time variables
+time_size = data.variables['time'].shape
 
 # LOAD COORDINATES
 coordinates = query_thredds_opendap(URL_ENDPOINT, longitude=(0,lon_size-1), latitude=(0,lat_size-1))
@@ -159,10 +164,11 @@ for p in points:
 	lat_range = get_nearest_points(coordinates.variables[LATITUDE], p[0], RADIUS)
 	lon_range = get_nearest_points(coordinates.variables[LONGITUDE], p[1], RADIUS)
 
-	d = query_thredds_opendap(URL_ENDPOINT, VHM0=[(0,9824), (0,7), (lat_range[0], lat_range[-1]), (lon_range[0], lon_range[-1])],
-											time=[(0,9824), (0,7)],
-											latitude=(lat_range[0], lat_range[-1]),
-											longitude=(lon_range[0], lon_range[-1]))
+	d = query_thredds_opendap(URL_ENDPOINT, **{VARIABLE:[(0,time_size[0]-1), (0,time_size[1]-1), (lat_range[0], lat_range[-1]), (lon_range[0], lon_range[-1])],
+												'time':[(0,time_size[0]-1), (0,time_size[1]-1)],
+												LATITUDE:(lat_range[0], lat_range[-1]),
+												LONGITUDE:(lon_range[0], lon_range[-1])
+											})
 
-	process_data(d, p, 'VHM0')
+	process_data(d, p, VARIABLE)
 

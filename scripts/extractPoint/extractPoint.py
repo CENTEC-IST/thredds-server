@@ -6,6 +6,7 @@ from geopy import distance
 from datetime import datetime, timedelta
 import time
 import os, sys
+import argparse
 
 from threading import Thread
 import queue
@@ -14,7 +15,7 @@ URL_ENDPOINT = "http://193.136.153.163/thredds/dodsC/WAVERYS/WAVERYS_fmrc.ncd"
 RADIUS = 40 # radius in km
 CHUNK_SIZE = 30 # size of each request
 OUTPUT_DIR = 'out/'
-VARIABLE = 'VHM0'
+VARIABLES = ['VHM0']
 
 def threaded(function, daemon=False):
 	'''Decorator to make a function threaded
@@ -115,6 +116,8 @@ def process_data(data, point, variable, weight_function=wf):
 	times = data.variables['time'][:]
 	size = len(times)
 
+	print(f"Extracting {variable} from {basedate+timedelta(**{timestep:times[0][0]})} to {basedate+timedelta(**{timestep:times[-1][-1]})}")
+
 	# Write Header
 	with open(f"{OUTPUT_DIR}{point[-1]}.txt", 'w') as fp:
 		fp.write(f"TIME{' '*(15)}   {variable}\n")
@@ -125,7 +128,7 @@ def process_data(data, point, variable, weight_function=wf):
 		sys.stdout.flush()
 		t = time.time()
 		tmp_data = data.variables[variable][mi:ma] # Request data
-		print(time.time() - t)
+		print('%.1f seconds' % (time.time() - t))
 
 		with open(f"{OUTPUT_DIR}{point[-1]}.txt", 'a') as fp:
 			for i in range(len(tmp_data)):
@@ -137,6 +140,21 @@ def process_data(data, point, variable, weight_function=wf):
 # ==============================================
 #                   MAIN
 # ==============================================
+
+# PARSE ARGUMENTS
+parser = argparse.ArgumentParser(description='Process some integers.')
+parser.add_argument('-v', '--variable', nargs='*', help='Variables to be extracted', default=VARIABLES)
+parser.add_argument('-u', '--url', help='URL endpoint (must be an opendap URL)', default=URL_ENDPOINT)
+parser.add_argument('-r', '--radius', type=int, help='Radius to around target points to take mean value', default=RADIUS)
+parser.add_argument('-o', '--output', help='Output directory to save files', default=OUTPUT_DIR)
+parser.add_argument('-c', '--chunk', type=int, help='Size of each data request', default=CHUNK_SIZE)
+
+args = parser.parse_args()
+CHUNK_SIZE = args.chunk
+URL_ENDPOINT = args.url
+VARIABLES = args.variable
+RADIUS = args.radius
+OUTPUT_DIR = args.output + '/' 
 
 # LOAD POINTS FROM FILE
 points = load_points('points.txt')
@@ -164,11 +182,14 @@ for p in points:
 	lat_range = get_nearest_points(coordinates.variables[LATITUDE], p[0], RADIUS)
 	lon_range = get_nearest_points(coordinates.variables[LONGITUDE], p[1], RADIUS)
 
-	d = query_thredds_opendap(URL_ENDPOINT, **{VARIABLE:[(0,time_size[0]-1), (0,time_size[1]-1), (lat_range[0], lat_range[-1]), (lon_range[0], lon_range[-1])],
-												'time':[(0,time_size[0]-1), (0,time_size[1]-1)],
+	start = 5000
+	end = time_size[0]-1
+
+	d = query_thredds_opendap(URL_ENDPOINT, **{VARIABLES[0]:[(start, end), (0,time_size[1]-1), (lat_range[0], lat_range[-1]), (lon_range[0], lon_range[-1])],
+												'time':[(start,end), (0,time_size[1]-1)],
 												LATITUDE:(lat_range[0], lat_range[-1]),
 												LONGITUDE:(lon_range[0], lon_range[-1])
 											})
 
-	process_data(d, p, VARIABLE)
+	process_data(d, p, VARIABLES[0])
 

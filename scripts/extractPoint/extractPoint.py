@@ -11,11 +11,14 @@ import argparse
 from threading import Thread
 import queue
 
+# DEFAULTS ==============================================
 URL_ENDPOINT = "http://193.136.153.163/thredds/dodsC/WAVERYS/WAVERYS_fmrc.ncd"
 RADIUS = 40 # radius in km
 CHUNK_SIZE = 30 # size of each request
 OUTPUT_DIR = 'out/'
 VARIABLES = ['VHM0']
+VERBOSE=False
+# =======================================================
 
 def threaded(function, daemon=False):
 	'''Decorator to make a function threaded
@@ -24,7 +27,7 @@ def threaded(function, daemon=False):
 	'''
 	def wrapped_function(queue, *args, **kwargs):
 		return_val = function(*args, **kwargs)
-		queue.put(return_val) 
+		queue.put(return_val)
 	def wrap(*args, **kwargs):
 		queue = queue.Queue()
 
@@ -46,7 +49,7 @@ def load_points(filename):
 	with open(filename, 'r') as fp:
 		return [make_tuple(line.strip('\n').split()) for line in fp]
 
-def query_thredds_opendap(endpoint=URL_ENDPOINT, verbose=False, **var_query):
+def query_thredds_opendap(endpoint=URL_ENDPOINT, **var_query):
 	'''Query the opendap endpoint for a certain variable with given parameters:
 	The variable must be a named function argument and the parameters must be a tuple or list of tuples
 	The tuple can have up to 3 values and the following combinations (start, step, end), (start, end), (start)
@@ -76,7 +79,7 @@ def query_thredds_opendap(endpoint=URL_ENDPOINT, verbose=False, **var_query):
 				yield f"{var}{process_list(value)}"
 
 	url = endpoint + '?' + ','.join(process_args())
-	if verbose: print(url)
+	if VERBOSE: print(url)
 	return nc.Dataset(url)
 
 def get_nearest_points(points, point, radius):
@@ -148,13 +151,15 @@ parser.add_argument('-u', '--url', help='URL endpoint (must be an opendap URL)',
 parser.add_argument('-r', '--radius', type=int, help='Radius to around target points to take mean value', default=RADIUS)
 parser.add_argument('-o', '--output', help='Output directory to save files', default=OUTPUT_DIR)
 parser.add_argument('-c', '--chunk', type=int, help='Size of each data request', default=CHUNK_SIZE)
+parser.add_argument('--verbose', help='Print more stuff', action='store_true', default=VERBOSE)
 
 args = parser.parse_args()
 CHUNK_SIZE = args.chunk
 URL_ENDPOINT = args.url
 VARIABLES = args.variable
 RADIUS = args.radius
-OUTPUT_DIR = args.output + '/' 
+OUTPUT_DIR = args.output + '/'
+VERBOSE = args.verbose
 
 # LOAD POINTS FROM FILE
 points = load_points('points.txt')
@@ -171,7 +176,8 @@ lon_size = data.variables[LONGITUDE].size
 time_size = data.variables['time'].shape
 
 # LOAD COORDINATES
-coordinates = query_thredds_opendap(URL_ENDPOINT, longitude=(0,lon_size-1), latitude=(0,lat_size-1))
+coordinates = query_thredds_opendap(URL_ENDPOINT, **{LONGITUDE:(0,lon_size-1),
+													LATITUDE:(0,lat_size-1)})
 
 # CREATE OUTPUT DIR
 if not os.path.exists(OUTPUT_DIR):
@@ -182,7 +188,7 @@ for p in points:
 	lat_range = get_nearest_points(coordinates.variables[LATITUDE], p[0], RADIUS)
 	lon_range = get_nearest_points(coordinates.variables[LONGITUDE], p[1], RADIUS)
 
-	start = 5000
+	start = 0
 	end = time_size[0]-1
 
 	d = query_thredds_opendap(URL_ENDPOINT, **{VARIABLES[0]:[(start, end), (0,time_size[1]-1), (lat_range[0], lat_range[-1]), (lon_range[0], lon_range[-1])],

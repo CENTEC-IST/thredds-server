@@ -8,13 +8,13 @@ import argparse
 DEFAULT_PATH = '/media/degas/model/ECMWF/ERA5/'
 
 # PARSE ARGUMENTS
-parser = argparse.ArgumentParser(description='Compare times between pairs of files of diferent variables.')
-parser.add_argument('variables', metavar='VAR', nargs='2', help='Variables to be compared')
-parser.add_argument('-p', '--path', nargs='*', help='Root path to find variables', default=DEFAULT_PATH)
+parser = argparse.ArgumentParser(description='Compare times between pairs of files of different variables.')
+parser.add_argument('variables', nargs=2, metavar=('VAR'), help='Variables to be compared')
+parser.add_argument('-p', '--path', help='Root path to find variables', default=DEFAULT_PATH)
 args = parser.parse_args()
 
-d1 = glob.glob(path + '**/' + args.variables[0] + '*.nc')
-d2 = glob.glob(path + '**/' + args.variables[1] + '*.nc')
+d1 = glob.glob(args.path + '**/' + args.variables[0] + '*.nc')
+d2 = glob.glob(args.path + '**/' + args.variables[1] + '*.nc')
 d1.sort()
 d2.sort()
 

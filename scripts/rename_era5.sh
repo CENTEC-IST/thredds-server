@@ -8,7 +8,7 @@ process() {
 	total=`find $DATA -name "$1*.nc" -not -path "*testes*" | wc -l`
 	n=1
 	for f in $files; do 
-		echo ">> [$n/$total] $f ${f/${1}/${2}}" | tee -a rename_log.txt
+		echo ">> [$n/$total] $f ${f/${1}/${2}}"
 		ncrename -v $1,$2 "$f"
 		mv "$f" "${f/${1}/${2}}"
 		n=$((n+1))

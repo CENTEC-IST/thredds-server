@@ -8,9 +8,6 @@ import time
 import os, sys
 import argparse
 
-from threading import Thread
-import queue
-
 # DEFAULTS ==============================================
 URL_ENDPOINT = "http://193.136.153.163/thredds/dodsC/WAVERYS/WAVERYS_fmrc.ncd"
 RADIUS = 40 # radius in km
@@ -19,24 +16,6 @@ OUTPUT_DIR = 'out/'
 VARIABLES = ['VHM0']
 VERBOSE=False
 # =======================================================
-
-def threaded(function, daemon=False):
-	'''Decorator to make a function threaded
-
-	To acess wrapped function return value use .get() on the return value
-	'''
-	def wrapped_function(queue, *args, **kwargs):
-		return_val = function(*args, **kwargs)
-		queue.put(return_val)
-	def wrap(*args, **kwargs):
-		queue = queue.Queue()
-
-		thread = Thread(target=wrapped_function, args=(queue,)+args , kwargs=kwargs)
-		thread.daemon=daemon
-		thread.start()
-		thread.result_queue=queue
-		return thread
-	return wrap
 
 def load_points(filename):
 	'''Load points from file with the line format:
@@ -145,7 +124,7 @@ def process_data(data, point, variable, weight_function=wf):
 # ==============================================
 
 # PARSE ARGUMENTS
-parser = argparse.ArgumentParser(description='Process some integers.')
+parser = argparse.ArgumentParser(description='Extract data from OpenDAP endpoint.')
 parser.add_argument('-v', '--variable', nargs='*', help='Variables to be extracted', default=VARIABLES)
 parser.add_argument('-u', '--url', help='URL endpoint (must be an opendap URL)', default=URL_ENDPOINT)
 parser.add_argument('-r', '--radius', type=int, help='Radius to around target points to take mean value', default=RADIUS)

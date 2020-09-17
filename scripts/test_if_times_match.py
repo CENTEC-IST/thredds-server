@@ -1,7 +1,7 @@
 #!/home/rmc/progs/python/anaconda3/bin/python3
 
 import sys
-import glob
+import glob2
 import netCDF4 as nc
 import argparse
 
@@ -9,12 +9,12 @@ DEFAULT_PATH = '/media/degas/model/ECMWF/ERA5/'
 
 # PARSE ARGUMENTS
 parser = argparse.ArgumentParser(description='Compare times between pairs of files of different variables.')
-parser.add_argument('variables', nargs=2, metavar=('VAR'), help='Variables to be compared')
+parser.add_argument('variables', nargs=2, metavar=('VAR'), help='Variables to be compared. (Should refer to the beginning of filenames)')
 parser.add_argument('-p', '--path', help='Root path to find variables', default=DEFAULT_PATH)
 args = parser.parse_args()
 
-d1 = glob.glob(args.path + '**/' + args.variables[0] + '*.nc')
-d2 = glob.glob(args.path + '**/' + args.variables[1] + '*.nc')
+d1 = glob2.glob(args.path + '**/' + args.variables[0] + '*.nc')
+d2 = glob2.glob(args.path + '**/' + args.variables[1] + '*.nc')
 d1.sort()
 d2.sort()
 

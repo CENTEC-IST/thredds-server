@@ -7,6 +7,7 @@ thredds/threddsConfig.xml
 
 scripts/extractPoint/out/*
 scripts/**/nohup.out
+scripts/dump/*
 
 # FILES
 tdm/tdm.log

@@ -22,7 +22,10 @@ def check_and_remove_dups(file1, file2):
 	d2 = nc.Dataset(file2)
 	if d1.variables['time'][-1] == d2.variables['time'][0]:
 		print(f"  \033[31m==\033[m Times match: {datetime.datetime.fromtimestamp(d1.variables['time'][-1])}. Deleting on {file1}...")
-		dup_dataset(d1, remove_last_entry=True)
+		if dup_dataset(d1, remove_last_entry=True):
+			# OVERWRITE THE FILE
+			# os.rename(file1 + '.tmp', file1)
+			pass
 		
 def dup_dataset(orig, remove_last_entry=False, dup_first_entry=False):
 	new = nc.Dataset(orig.filepath() + '.tmp', 'w', persist=True, format='NETCDF4_CLASSIC')
@@ -51,7 +54,7 @@ def dup_dataset(orig, remove_last_entry=False, dup_first_entry=False):
 	vars = [k for k in orig.variables if k not in ('time', 'latitude', 'longitude')]
 	if len(vars) != 1:
 		print(f"The file {orig.filepath()} has multiple variables {repr(vars)}. Ignoring...")
-		return
+		return False
 
 	var_name = vars[0]
 
@@ -83,6 +86,7 @@ def dup_dataset(orig, remove_last_entry=False, dup_first_entry=False):
 
 	new.sync()
 	new.close()
+	return True
 
 
 # ============================
@@ -103,6 +107,6 @@ for var in args.variables:
 	print(f"Found {len(files)} files in {args.path + '/**/' + args.variables[0] + '*.nc'}")
 
 	for i in range(1, len(files)):
-		print(f"Processing {i}/{len(files)} -- {files[i-1]}  {files[i]}")
+		print(f"Processing {i}/{len(files)-1} -- {files[i-1]}  {files[i]}")
 		check_and_remove_dups(files[i-1], files[i])
 

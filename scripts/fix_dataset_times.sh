@@ -64,13 +64,13 @@ for (( i=1 ; i<${#files[@]} ; i++ )); do
 			fi
 
 			# Stich tmp file to second file
-			echo -e "  \033[33m==\033[m Stiching files into ${files[$i]}..."
+			echo -e "  \033[33m==\033[m Stiching extracted timesteps into ${files[$i]}..."
 			ncrcat -O "$TEMP/$(basename ${files[$i-1]}).tmp" ${files[$i]} "$TEMP/$(basename ${files[$i]}).tmp" 
 			mv "$TEMP/$(basename ${files[$i]}).tmp" ${files[$i]}  # ovewrite second file
 		fi
 
 		# Remove the extracted times from the first file
-		echo -e "  \033[33m==\033[m Deleting on $npoints timesteps on ${files[$i-1]}..."
+		echo -e "  \033[33m==\033[m Deleting $npoints timesteps on ${files[$i-1]}..."
 		ncks -O -d time,0,-$(($npoints+1)) "${files[$i-1]}" "$TEMP/$(basename ${files[$i-1]}).tmp" # delete times moved and save tmp file
 		mv "$TEMP/$(basename ${files[$i-1]}).tmp" "${files[$i-1]}" # overwrite first file
 	fi

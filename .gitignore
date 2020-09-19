@@ -6,7 +6,7 @@ thredds/public/data/*
 thredds/threddsConfig.xml
 
 scripts/extractPoint/out/*
-scripts/**/nohup.out
+scripts/**/*.out
 scripts/dump/*
 
 # FILES

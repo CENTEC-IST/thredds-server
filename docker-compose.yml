@@ -66,6 +66,12 @@ services:
               target: /usr/local/tomcat/content/thredds/public/data/CFSv2/
               read_only: true
 
+              #  WW3 ST4 - nopp2
+            - type: bind
+              source: /media/monet/public/model/hindcast/NCEP/wave/nopp-phase2/
+              target: /usr/local/tomcat/content/thredds/public/data/WW3ST4/
+              read_only: true
+            
         env_file:
             - "compose.env"
 
@@ -121,6 +127,13 @@ services:
               source: /media/monet/public/model/hindcast/NCEP/atmos/CFSv2/
               target: /usr/local/tomcat/content/thredds/public/data/CFSv2/
               read_only: true
+              
+              #  WW3 ST4 - nopp2
+            - type: bind
+              source: /media/monet/public/model/hindcast/NCEP/wave/nopp-phase2/
+              target: /usr/local/tomcat/content/thredds/public/data/WW3ST4/
+              read_only: true
+            
         env_file:
             - "compose.env"
 

@@ -1,6 +1,7 @@
 #!/bin/bash
 set -e
 
+# XXX Edit path here
 DATA=/media/degas/model/ECMWF/ERA5/
 
 process() {
@@ -15,6 +16,7 @@ process() {
 	done
 }
 
+# XXX EDIT THE VARIABLES HERE (The filename should start with the variable name, and must be the same as the variable name inside .nc)
 process "10u" "uwnd"
 process "10v" "vwnd"
 process "2d" "dewp"

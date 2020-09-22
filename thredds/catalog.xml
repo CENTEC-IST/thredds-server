@@ -16,4 +16,5 @@
   <catalogRef xlink:title="WAVERYS" xlink:href="WAVERYS_Catalog.xml" name=""/>
   <catalogRef xlink:title="IFREMER" xlink:href="IFREMER_Catalog.xml" name=""/>
   <catalogRef xlink:title="CFS" xlink:href="CFS_Catalog.xml" name=""/>
+  <catalogRef xlink:title="WW3" xlink:href="WW3_Catalog.xml" name=""/>
 </catalog>

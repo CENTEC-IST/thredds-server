@@ -12,6 +12,8 @@ fi
 import sys
 import os
 import netCDF4 as nc
+import datetime
+import numpy as np
 
 args = sys.argv[6:]
 

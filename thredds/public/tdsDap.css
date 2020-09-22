@@ -1,157 +1,60 @@
-/*
- * /////////////////////////////////////////////////////////////////////////////
- * // This file is part of the "Hyrax Data Server" project.
- * //
- * //
- * // Copyright (c) 2013 OPeNDAP, Inc.
- * // Author: Nathan David Potter  <ndp@opendap.org>
- * //
- * // This library is free software; you can redistribute it and/or
- * // modify it under the terms of the GNU Lesser General Public
- * // License as published by the Free Software Foundation; either
- * // version 2.1 of the License, or (at your option) any later version.
- * //
- * // This library is distributed in the hope that it will be useful,
- * // but WITHOUT ANY WARRANTY; without even the implied warranty of
- * // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * // Lesser General Public License for more details.
- * //
- * // You should have received a copy of the GNU Lesser General Public
- * // License along with this library; if not, write to the Free Software
- * // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301
- * //
- * // You can contact OPeNDAP, Inc. at PO Box 112, Saunderstown, RI. 02874-0112.
- * /////////////////////////////////////////////////////////////////////////////
- */
-
-H1 {
-    font-family:Tahoma,Arial,sans-serif;
-    color:white;
-    background-color:#527CC1;
-    font-size:22px;
-    padding-left: 5px;
-}
-H2 {
-    font-family:Tahoma,Arial,sans-serif;
-    color:white;
-    background-color:#527CC1;
-    font-size:16px;
-    padding-left: 5px;
-}
-H3 {
-    font-family:Tahoma,Arial,sans-serif;
-    color:white;
-    background-color:#527CC1;
-    font-size:14px;
-    padding-left: 5px;
-    }
-H4 {
-    font-family:Tahoma,Arial,sans-serif;
-    color:white;
-    background-color:#527CC1;
-    font-size:12px;
-    padding-left: 5px;
-    }
-BODY {
-    font-family:Tahoma,Arial,sans-serif;
-    color:black;
-    background-color:white;
-}
-P {
-    font-family:Tahoma,Arial,sans-serif;
-    background:white;
-    color:black;
-    font-size:12px;
-}
-A {
-    color : black;
-}
-A.name {
-    color : black;
-}
-HR {
-    color : #525D76;
-}
-.uuid {
-    font-size: 9px;color:#2A54B9
-}
-.xsmall_bold {
-    font-size: 8px;
-    font-weight: bold
-}
-.xsmall_italic {
-    font-size: 8px;
-    font-style: italic
-}
-.xsmall {
-    font-size: 8px;
-}
-.small_bold {
-    font-size: 10px;
-    font-weight: bold
-}
-.small_italic {
-    font-size: 10px;
-    font-style: italic
-}
-.small {
-    font-size: 10px;
-}
-.medium_bold {
-    font-size: 14px;
-    font-weight: bold
-}
-.medium_normal {
-    font-size: 14px;
-    font-weight: normal
-}
-.medium_italic {
-    font-size: 14px;
-    font-style: italic;
-}
-.medium {
-    font-size: 14px;
-}
-.large {
-    font-size: 18px;
-}
-.large_bold {
-    font-size: 18px;
-    font-weight: bold;
-}
-.xlarge {
-    font-size: 24px;
-}
-.xxlarge {
-    font-size: 36px;
-}
-.small_black {
-    font-size: 10px;
-    color    : black;
-}
-.tiny_black_fw {
-    font-family: courier;
-    font-size: 11px;
-    color    : black;
-}
-.dark {
-    font-weight: bold;
-}
-.normal {
-    font-weight: normal
+:root {
+	--bg1: #002d40;
+	--bg2: #1da2d8;
+	--light: #d9ecf2;
 }
 
-.bold {
-    font-weight: bold;
+body{
+	font-weight: normal;
+	font-size: 10pt;
+	font-family: Arial, Helvetica, sans-serif;
+	width: 80%;
+	margin: 0 auto;
 }
 
-.italic {
-    font-style: italic;
+
+h2 {
+	font-size: 17pt;
+	text-align: center;
+	color: var(--bg2);
 }
 
-.bold_italic {
-    font-weight: bold;
-    font-style: italic;
+td {
+	font-weight: normal;
+	font-size: 12pt;
+
 }
 
+h3 > strong > a:nth-child(1) {
+	color: black;
+	font-size:  18pt;
+}
+
+h3 {
+	color: var(--bg2);
+}
+
+A:link {
+	color: var(--bg2)
+
+}
+
+A:visited {
+	color: var(--bg2);
+}
+
+a:hover {
+	color: #FF0000;
+	text-decoration: underline
+}
+
+A { text-decoration: none }
+
+textarea {
+	border: none;
+}
+
+input {
+
+}
 

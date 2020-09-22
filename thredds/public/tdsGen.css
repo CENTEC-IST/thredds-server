@@ -30,6 +30,8 @@ h2 {
 td {
 	font-weight: normal;
 	font-size: 10pt;
+	text-align: right;
+	padding-right: 10px;
 	color: #fff;
 	text-decoration: none;
 	background-color: #fff;

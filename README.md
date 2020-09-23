@@ -7,4 +7,8 @@ This repository contains the configuration of a thredds dataserver running on a 
 
 The server acts as an interface to hindcast and forecast data contained in the CENTEC database.
 
+### Check out this repository [wiki](https://github.com/CENTEC-IST/centec-db/wiki) for more information.
+
+
+
 [UNIDATA - Thredds Data Server](https://www.unidata.ucar.edu/software/tds/)

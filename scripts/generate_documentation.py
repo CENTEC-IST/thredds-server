@@ -69,7 +69,7 @@ for f in files:
 
 	print(f"\rProcessing {f}", end='')
 	if len(f) + 12 > MAX_PRINT_LEN: # Little hack to delete what i print, becase of \r
-		MAX_PRINT_LEN = len(f) + 12 
+		MAX_PRINT_LEN = len(f) + 12
 
 	# Handle dimensions
 	for d in di:
@@ -80,21 +80,21 @@ for f in files:
 			if d not in dims:
 				dims[d] = [start, end, units]
 			elif dims[d] != [start, end, units]:
-				print(dims)
-				print(dims[d])
-				print([start, end, units])
-				print(f"Geo Spatial Dimensions of file '{f}' dont match with previous files")
+				print(f"\nGeo Spatial Dimensions of file '{f}' dont match with previous files")
 				sys.exit(1)
 		elif d in TIME_DIMS:
 			units = data.variables[d].units.split()[0]
 			if d in dims and units != dims[d][-1]:
-				print(f"'{d}' dimension units on '{f}' dont match previous files")
+				print(f"\n'{d}' dimension units on '{f}' dont match previous files")
 				sys.exit(1)
 
 			date = data.variables[d].units.split()[2]
-			date = '-'.join([date[:4]] + [f"{int(a):02}" for a in date.split('-')[1:]]) # sometimes dates arent zero padded...
-			hours = data.variables[d].units.split()[3][:8]
-			date = f"{date}T{hours}"
+			try:
+				date = '-'.join([date[:4]] + [f"{int(a):02}" for a in date.split('-')[1:]]) # sometimes dates arent zero padded...
+				hours = data.variables[d].units.split()[3][:7]
+				date = f"{date}T{hours}"
+			except ValueError: # maybe its already in the right format (with a Z in the end)
+				date = date[:-1]
 			start = datetime.datetime.strptime(date, DATE_FSTRING) + datetime.timedelta(**{units:float(data.variables[d][0])})
 			end = datetime.datetime.strptime(date, DATE_FSTRING) + datetime.timedelta(**{units:float(data.variables[d][-1])})
 

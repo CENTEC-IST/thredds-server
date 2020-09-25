@@ -12,7 +12,7 @@ fi
 import sys
 import os
 import netCDF4 as nc
-import datetime
+import time
 import numpy as np
 
 args = sys.argv[6:]
@@ -38,8 +38,19 @@ else:
 
 if type(data) == list:
 	print(\"\033[31mUse '\033[1;32margs\033[31m' to access supplied arguments and '\033[1;32mdata[n]\033[31m' to acess the nth netCDF4 data file\033[m\")
+	datatime = [data[i].variables['time'] for i in range(len(data)) if 'time' in data[i].variables]
+	print('Access data[i].variables[\'time\'] through alias \'datatime[i]\'. Use \'timeof()\' to return date of a timestamp in seconds')
 else:
+	if 'time' in data.variables:
+		datatime = data.variables['time']
 	print(\"\033[31mUse '\033[1;32margs\033[31m' to access supplied arguments and '\033[1;32mdata\033[31m' to acess the netCDF4 data file\033[m\")
+	print('Access data.variables[\'time\'] through alias \'datatime\'. Use \'timeof()\' to return date of a timestamp in seconds')
+
+
+# define some utility functions
+def timeof(val):
+	return time.strftime('%Y-%m-%d %H:%M:%S', time.gmtime(int(val)))
+
 """ $@
 
 

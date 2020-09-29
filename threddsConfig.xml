@@ -51,6 +51,15 @@
     <catalogCssUrl>tdsCat.css</catalogCssUrl>
     <openDapCssUrl>tdsDap.css</openDapCssUrl>
 
+	<!--
+	* The URLs (relative to "/thredds/") and alternate text for both
+	* folder and dataset icons used in HTML catalog views.
+	* -->
+	<folderIconUrl>folder.png</folderIconUrl>
+	<!-- <folderIconAlt>Folder</folderIconAlt> -->
+	<datasetIconUrl>scan_folder.png</datasetIconUrl>
+	<!-- <datasetIconAlt>Dataset</datasetIconAlt> -->
+
     <!--
      * The Google Analytics Tracking code you would like to use for the
      * webpages associated with THREDDS. This will not track WMS or DAP

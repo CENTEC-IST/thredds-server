@@ -36,20 +36,28 @@ else:
 			print(\"File not found \" + a)
 			os._exit(1)
 
-if type(data) == list:
-	print(\"\033[31mUse '\033[1;32margs\033[31m' to access supplied arguments and '\033[1;32mdata[n]\033[31m' to acess the nth netCDF4 data file\033[m\")
-	datatime = [data[i].variables['time'] for i in range(len(data)) if 'time' in data[i].variables]
-	print('Access data[i].variables[\'time\'] through alias \'datatime[i]\'. Use \'timeof()\' to return date of a timestamp in seconds')
-else:
+def timeDim(data):
 	if 'time' in data.variables:
-		datatime = data.variables['time']
-	print(\"\033[31mUse '\033[1;32margs\033[31m' to access supplied arguments and '\033[1;32mdata\033[31m' to acess the netCDF4 data file\033[m\")
-	print('Access data.variables[\'time\'] through alias \'datatime\'. Use \'timeof()\' to return date of a timestamp in seconds')
+		return 'time'
+	elif 'date' in data.variables:
+		return 'date'
+	raise KeyError('No time dimension recognized on this file ' + data.filepath())
+
+if type(data) == list:
+	datatime = [data[i].variables[timeDim(data[i])] for i in range(len(data))]
+else:
+	datatime = data.variables[timeDim(data)]
+print('\033[36mVariables\033[m: \'data\', \'args\', \'datatime\'\n\033[36mFunctions\033[m: \'timeof\'')
 
 
 # define some utility functions
-def timeof(val):
-	return time.strftime('%Y-%m-%d %H:%M:%S', time.gmtime(int(val)))
+def timeof(val, units='seconds'):
+	if units.startswith('seconds'):
+		return time.strftime('%Y-%m-%d %H:%M:%S', time.gmtime(int(val)))
+	elif units.startswith('hours'):
+		return time.strftime('%Y-%m-%d %H:%M:%S', time.gmtime(int(val*3600)))
+	elif units.startswith('days'):
+		return time.strftime('%Y-%m-%d %H:%M:%S', time.gmtime(int(val*3600*24)))
 
 """ $@
 

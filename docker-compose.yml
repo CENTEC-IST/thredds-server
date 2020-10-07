@@ -35,42 +35,59 @@ services:
               source: ./logs/thredds/
               target: /usr/local/tomcat/content/thredds/logs/
 
-              # ========================  DATA
+              # ===============================================
+              #                    DATA
+              # ===============================================
+
+
+              # =========================
+              #         HINDCAST 
+              # =========================
               #  ERA 5
             - type: bind
               source: /media/degas/model/ECMWF/ERA5/
-              target: /usr/local/tomcat/content/thredds/public/data/ERA5/
+              target: /usr/local/tomcat/content/thredds/public/data/hindcast/ERA5/
               read_only: true
               
               #  WAVERYS
             - type: bind
               source: /media/degas/model/WAVERYS/
-              target: /usr/local/tomcat/content/thredds/public/data/WAVERYS/
+              target: /usr/local/tomcat/content/thredds/public/data/hindcast/WAVERYS/
               read_only: true
               
               #  WAVERYS
             - type: bind
               source: /media/degas/model/IFREMER/
-              target: /usr/local/tomcat/content/thredds/public/data/IFREMER/
+              target: /usr/local/tomcat/content/thredds/public/data/hindcast/IFREMER/
               read_only: true
               
               #  CFSR
             - type: bind
               source: /media/monet/public/model/hindcast/NCEP/atmos/CFSR/
-              target: /usr/local/tomcat/content/thredds/public/data/CFSR/
+              target: /usr/local/tomcat/content/thredds/public/data/hindcast/CFSR/
               read_only: true
               
               #  CFSv2
             - type: bind
               source: /media/monet/public/model/hindcast/NCEP/atmos/CFSv2/
-              target: /usr/local/tomcat/content/thredds/public/data/CFSv2/
+              target: /usr/local/tomcat/content/thredds/public/data/hindcast/CFSv2/
               read_only: true
 
               #  WW3 ST4 - nopp2
             - type: bind
-              source: /media/monet/public/model/hindcast/NCEP/wave/nopp-phase2/
-              target: /usr/local/tomcat/content/thredds/public/data/WW3ST4/
+              source: /media/monet/public/model/hindcast/NCEP/wave/nopp-phase2/netcdf_subset/ # TODO -- This is temporary
+              target: /usr/local/tomcat/content/thredds/public/data/hindcast/WW3ST4/
               read_only: true
+              
+              # =========================
+              #         FORECAST
+              # =========================
+              
+            - type: bind
+              source: /media/monet/public/model/forecast/opftp/
+              target: /usr/local/tomcat/content/thredds/public/data/forecast/
+              read_only: true
+
             
         env_file:
             - "compose.env"
@@ -98,40 +115,54 @@ services:
               target: /usr/local/tomcat/content/tdm/
 
               # ========================  DATA
+
+              # =========================
+              #         HINDCAST 
+              # =========================
+              
               #  ERA 5
             - type: bind
               source: /media/degas/model/ECMWF/ERA5/
-              target: /usr/local/tomcat/content/thredds/public/data/ERA5/
+              target: /usr/local/tomcat/content/thredds/public/data/hindcast/ERA5/
               read_only: true
               
               #  WAVERYS
             - type: bind
               source: /media/degas/model/WAVERYS/
-              target: /usr/local/tomcat/content/thredds/public/data/WAVERYS/
+              target: /usr/local/tomcat/content/thredds/public/data/hindcast/WAVERYS/
               read_only: true
               
               #  WAVERYS
             - type: bind
               source: /media/degas/model/IFREMER/
-              target: /usr/local/tomcat/content/thredds/public/data/IFREMER/
+              target: /usr/local/tomcat/content/thredds/public/data/hindcast/IFREMER/
               read_only: true
               
               #  CFSR
             - type: bind
               source: /media/monet/public/model/hindcast/NCEP/atmos/CFSR/
-              target: /usr/local/tomcat/content/thredds/public/data/CFSR/
+              target: /usr/local/tomcat/content/thredds/public/data/hindcast/CFSR/
               read_only: true
               
               #  CFSv2
             - type: bind
               source: /media/monet/public/model/hindcast/NCEP/atmos/CFSv2/
-              target: /usr/local/tomcat/content/thredds/public/data/CFSv2/
+              target: /usr/local/tomcat/content/thredds/public/data/hindcast/CFSv2/
               read_only: true
               
               #  WW3 ST4 - nopp2
             - type: bind
-              source: /media/monet/public/model/hindcast/NCEP/wave/nopp-phase2/
-              target: /usr/local/tomcat/content/thredds/public/data/WW3ST4/
+              source: /media/monet/public/model/hindcast/NCEP/wave/nopp-phase2/netcdf_subset/
+              target: /usr/local/tomcat/content/thredds/public/data/hindcast/WW3ST4/
+              read_only: true
+              
+              # =========================
+              #         FORECAST
+              # =========================
+              
+            - type: bind
+              source: /media/monet/public/model/forecast/opftp/
+              target: /usr/local/tomcat/content/thredds/public/data/forecast/
               read_only: true
             
         env_file:

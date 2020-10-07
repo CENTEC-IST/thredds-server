@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="http://www.unidata.ucar.edu/namespaces/thredds/InvCatalog/v1.0" xmlns:xlink="http://www.w3.org/1999/xlink" name="Unidata THREDDS-IDD NetCDF-OpenDAP Server" version="1.0.1">
+
+  <!-- SERVICES -->
+  <service name="all" base="" serviceType="compound">
+    <service name="odap" serviceType="OpenDAP" base="/thredds/dodsC/"/>
+    <service name="wcs" serviceType="WCS" base="/thredds/wcs/"/>
+    <service name="wms" serviceType="WMS" base="/thredds/wms/"/>
+    <service name="ncss" serviceType="NetcdfSubset" base="/thredds/ncss/"/>
+  </service>
+
+  <!-- ========================================== -->
+  <!-- ERA5 -->
+  <!-- ========================================== -->
+
+  <featureCollection name="PLACEHOLDER" featureType="FMRC" harvest="true" path="PLACEHOLDER">
+    <metadata inherited="true">
+      <serviceName>all</serviceName>
+      <dataType>Grid</dataType>
+      <dataFormat>NetCDF</dataFormat>
+    </metadata>
+	<collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/*\.nc$" dateFormatMark="yyyyMM#.nc#$" olderThan="5 min"/>
+    <update startup="true" rescan="* 0 4 * * ? *" trigger="allow"/>
+  </featureCollection>
+
+</catalog>

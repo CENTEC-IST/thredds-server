@@ -1,4 +1,7 @@
-# ERA5
+
+# This script is indented to test read speeds on a collection of files specified in the data_path variable as a glob expression
+
+
 import xarray as xr
 import pandas
 import dask
@@ -7,6 +10,7 @@ import numpy as np
 import time
 import glob2
 
+# CHANGE HERE
 data_path = "dump/*.nc"
 
 start = time.time()

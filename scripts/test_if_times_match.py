@@ -1,5 +1,7 @@
 #!/home/rmc/progs/python/anaconda3/bin/python3
 
+# This script was intended to see if timestamps match between files relative to the same date but that contain different variables
+
 import sys
 import glob2
 import netCDF4 as nc

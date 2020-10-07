@@ -63,6 +63,8 @@ for f in files:
                 for key in EXTRACT_VAR.values()])
             var_info.append(d)
 
+    if len(files) > 1:
+        print(f)
     if not dim_only:
         print('\033[1;32mVARIABLES:\033[m')
         print_table([''] + list(EXTRACT_VAR.keys()), var_info)

@@ -1,4 +1,10 @@
 #!/bin/bash
+
+# Simply rename variables of a netcdf collection
+# NOTE: Doesnt work for dimensions (ncrename must be passed -d flag instead)
+#
+# The script was intended to work on the ERA5 hindcast dataset
+
 set -e
 
 # XXX Edit path here

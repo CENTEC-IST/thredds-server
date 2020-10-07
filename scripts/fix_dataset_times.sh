@@ -1,7 +1,12 @@
 #!/bin/bash
 
-# This scripts expects a list of files as arguments.
-# The files are then sorted alphabeticaly and for each pair it is verified
+# This script is intended to use only on CFSR and CFSv2 hindcast data.
+#  The goal is to move out of place data to other files (timestamps that belong to different files) 
+#
+# This scripts expects a list of files as arguments from which to move timestamps between.
+# 
+# Behavior:
+# The files are sorted alphabeticaly and for each pair it is verified
 #  - IF TIME OVERLAP OCURRS. In which case the last time from the first file
 #    of the overlapping pair is removed
 #  - IF ENDING TIME BELONGS TO NEXT FILE. In which case the last time from the
@@ -9,7 +14,7 @@
 # 
 #  The reverse is also verified
 #  - IF BEGINING OF NEXT FILE BELONGS TO THE PREVIOUS FILE.	In which case it is copied and removed from the original
-#
+
 
 
 # ==============================================================================================================================

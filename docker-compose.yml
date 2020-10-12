@@ -75,7 +75,7 @@ services:
 
               #  WW3 ST4 - nopp2
             - type: bind
-              source: /media/monet/public/model/hindcast/NCEP/wave/nopp-phase2/netcdf_subset/ # TODO -- This is temporary
+              source: /media/monet/public/model/hindcast/NCEP/wave/nopp-phase2/netcdf/ # TODO -- This is temporary
               target: /usr/local/tomcat/content/thredds/public/data/hindcast/WW3ST4/
               read_only: true
 
@@ -84,8 +84,18 @@ services:
               # =========================
 
             - type: bind
-              source: /media/monet/public/model/forecast/opftp/
-              target: /usr/local/tomcat/content/thredds/public/data/forecast/
+              source: /media/monet/public/model/forecast/hardlinked_opftp/gfs/
+              target: /usr/local/tomcat/content/thredds/public/data/forecast/GFS/
+              read_only: true
+
+            - type: bind
+              source: /media/monet/public/model/forecast/hardlinked_opftp/gfs.surface/
+              target: /usr/local/tomcat/content/thredds/public/data/forecast/GFS.SURFACE/
+              read_only: true
+
+            - type: bind
+              source: /media/monet/public/model/forecast/hardlinked_opftp/ww3/
+              target: /usr/local/tomcat/content/thredds/public/data/forecast/WW3/
               read_only: true
 
 
@@ -152,7 +162,7 @@ services:
 
               #  WW3 ST4 - nopp2
             - type: bind
-              source: /media/monet/public/model/hindcast/NCEP/wave/nopp-phase2/netcdf_subset/
+              source: /media/monet/public/model/hindcast/NCEP/wave/nopp-phase2/netcdf/
               target: /usr/local/tomcat/content/thredds/public/data/hindcast/WW3ST4/
               read_only: true
 
@@ -161,8 +171,18 @@ services:
               # =========================
 
             - type: bind
-              source: /media/monet/public/model/forecast/opftp/
-              target: /usr/local/tomcat/content/thredds/public/data/forecast/
+              source: /media/monet/public/model/forecast/hardlinked_opftp/gfs/
+              target: /usr/local/tomcat/content/thredds/public/data/forecast/GFS/
+              read_only: true
+
+            - type: bind
+              source: /media/monet/public/model/forecast/hardlinked_opftp/gfs.surface/
+              target: /usr/local/tomcat/content/thredds/public/data/forecast/GFS.SURFACE/
+              read_only: true
+
+            - type: bind
+              source: /media/monet/public/model/forecast/hardlinked_opftp/ww3/
+              target: /usr/local/tomcat/content/thredds/public/data/forecast/WW3/
               read_only: true
 
         env_file:

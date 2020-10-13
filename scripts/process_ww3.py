@@ -54,7 +54,7 @@ def process_ww3(orig, target):
 
 files = sys.argv[1:]
 for i, file in enumerate(files):
-	print(f"Processing [{i}/{len(sys.argv)-2}] {file}")
+	print(f"Processing [{i+1}/{len(sys.argv)-1}] {file}")
 	stime = time.time()
 	process_ww3(file, file + '.tmp')
 	print("Processed in %.3f" % (time.time() - stime))

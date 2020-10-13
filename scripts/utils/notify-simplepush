@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [[ -z $1 ]] || [[ -z $2 ]] ; then
+	echo "Give a Title and Message." >&2
+	exit
+fi
+
+KEY=$(cat /home/eximus/simplepush_key)
+curl -s https://api.simplepush.io/send/${KEY}/${1}/${2} > /dev/null

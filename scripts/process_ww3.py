@@ -16,7 +16,10 @@ COMPRESSION = 7
 PARTITIONS_TO_KEEP = 19 # the file with least amount of partitions has 19
 
 def process_ww3(orig, target):
-	xdata = xarray.open_dataset(orig)
+	try:
+		xdata = xarray.open_dataset(orig)
+	except OSError:
+		return False # will cause the file to be downloaded again
 
 	if 'date' in xdata: # rename
 		xdata = xdata.rename({'date':'time'})
@@ -26,9 +29,12 @@ def process_ww3(orig, target):
 	# xdata = xdata.chunk({dim:'auto' for dim in xdata.dims})
 	# xdata = xdata.unify_chunks()
 
-	if xdata.longitude[0] == 0:
-		# adjust longitude, latitude should be fine -90, 90
-		xdata['longitude'] = xdata.longitude - 180 
+	try:
+		if xdata.longitude[0] == 0:
+			# adjust longitude, latitude should be fine -90, 90
+			xdata['longitude'] = xdata.longitude - 180 
+	except AttributeError:
+		return False
 
 	xcrop = xdata.sel(latitude = slice(LATMIN, LATMAX),
 					longitude = slice(LONMIN, LONMAX),
@@ -44,9 +50,13 @@ def process_ww3(orig, target):
 	# generate encoding for data vars
 	enc = dict(zlib=True, complevel=COMPRESSION) 
 	with ProgressBar():
-		xcrop.to_netcdf(target, format='NETCDF4_CLASSIC', encoding={var: enc for var in xcrop.data_vars})
+		try:
+			xcrop.to_netcdf(target, format='NETCDF4_CLASSIC', encoding={var: enc for var in xcrop.data_vars})
+		except RuntimeError:
+			return False # will cause the file to be downloaded again
 
 	xdata.close()
+	return True
 
 # ============================
 #			MAIN
@@ -54,9 +64,12 @@ def process_ww3(orig, target):
 
 files = sys.argv[1:]
 for i, file in enumerate(files):
-	print(f"Processing [{i+1}/{len(sys.argv)-1}] {file}")
+	print(f"Processing [{i+1}/{len(files)}] {file}")
 	stime = time.time()
-	process_ww3(file, file + '.tmp')
+	while not process_ww3(file, file + '.tmp'):
+		date = file.split('.')[-2]
+		print('File has errors... Redownloading...')
+		os.system(f'wget -q https://polar.ncep.noaa.gov/waves/hindcasts/nopp-phase2/{date}/partitions/multi_reanal.partition.glo_30m.{date}.nc -O {file}')
 	print("Processed in %.3f" % (time.time() - stime))
 	print(f"Moving {file}")
 	os.rename(file + '.tmp', file) # Overwrite original file

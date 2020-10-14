@@ -7,6 +7,7 @@ set -e
 
 send_mail() {
 	/usr/bin/mutt fabio4335@gmail.com -s "$1" <<< "$2"
+	/usr/bin/mutt ricardo.campos@centec.tecnico.ulisboa.pt -s "$1" <<< "$2"
 }
 
 send_notification() {

@@ -11,8 +11,8 @@ LATMAX=90.
 LONMIN=-102.
 LONMAX=30.
 
-# the original file uses 9 but since we are reducing its size ill use less compression here
-COMPRESSION = 7
+# the original file uses 9 but since we are reducing its size we will use less compression here, since its faster too
+COMPRESSION = 6
 PARTITIONS_TO_KEEP = 19 # the file with least amount of partitions has 19
 
 def process_ww3(orig, target):
@@ -25,35 +25,30 @@ def process_ww3(orig, target):
 		xdata = xdata.rename({'date':'time'})
 	
 	# process dataset in chunks (to avoid overflowing memory)
-	# xdata = xdata.chunk({'time':100, 'partition':10})
+	xdata = xdata.chunk({'time':100, 'partition':10})
 	# xdata = xdata.chunk({dim:'auto' for dim in xdata.dims})
 	# xdata = xdata.unify_chunks()
 
 	try:
 		if xdata.longitude[0] == 0:
 			# adjust longitude, latitude should be fine -90, 90
-			xdata['longitude'] = xdata.longitude - 180 
+			xdata.coords['longitude'] = (xdata.coords['longitude'] + 180) % 360 - 180
+			xdata = xdata.sortby(xdata.longitude)
 	except AttributeError:
 		return False
 
+	# crop
 	xcrop = xdata.sel(latitude = slice(LATMIN, LATMAX),
 					longitude = slice(LONMIN, LONMAX),
 					partition = slice(0, PARTITIONS_TO_KEEP))
 
-	# # crop
-	# mask_lat = (xdata.latitude >= LATMIN) & (xdata.latitude <= LATMAX)
-	# mask_lon = (xdata.longitude >= LONMIN ) & ( xdata.longitude <= LONMAX)
-	# mask_part = (xdata.partition < REMOVE_PARTITIONS_HIGHER)
-	# # since chunks was used, this will only be proccessed when writing to disk
-	# xcrop = xdata.where(mask_lat & mask_lon & mask_part, drop = True)
-
 	# generate encoding for data vars
 	enc = dict(zlib=True, complevel=COMPRESSION) 
-	with ProgressBar():
-		try:
-			xcrop.to_netcdf(target, format='NETCDF4_CLASSIC', encoding={var: enc for var in xcrop.data_vars})
-		except RuntimeError:
-			return False # will cause the file to be downloaded again
+	# with ProgressBar():
+	try:
+		xcrop.to_netcdf(target, format='NETCDF4_CLASSIC', encoding={var: enc for var in xcrop.data_vars})
+	except RuntimeError:
+		return False # will cause the file to be downloaded again
 
 	xdata.close()
 	return True

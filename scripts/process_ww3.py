@@ -16,39 +16,28 @@ COMPRESSION = 6
 PARTITIONS_TO_KEEP = 19 # the file with least amount of partitions has 19
 
 def process_ww3(orig, target):
-	try:
-		xdata = xarray.open_dataset(orig)
-	except OSError:
-		return False # will cause the file to be downloaded again
+	xdata = xarray.open_dataset(orig)
 
 	if 'date' in xdata: # rename
 		xdata = xdata.rename({'date':'time'})
-	
+
 	# process dataset in chunks (to avoid overflowing memory)
 	xdata = xdata.chunk({'time':100, 'partition':10})
 	# xdata = xdata.chunk({dim:'auto' for dim in xdata.dims})
 	# xdata = xdata.unify_chunks()
 
-	try:
-		if xdata.longitude[0] == 0:
-			# adjust longitude, latitude should be fine -90, 90
-			xdata.coords['longitude'] = (xdata.coords['longitude'] + 180) % 360 - 180
-			xdata = xdata.sortby(xdata.longitude)
-	except AttributeError:
-		return False
+	# adjust longitude, latitude should be fine -90, 90
+	xdata.coords['longitude'] = (xdata.coords['longitude'] + 180) % 360 - 180
+	xdata = xdata.sortby(xdata.longitude)
 
-	# crop
 	xcrop = xdata.sel(latitude = slice(LATMIN, LATMAX),
 					longitude = slice(LONMIN, LONMAX),
 					partition = slice(0, PARTITIONS_TO_KEEP))
 
 	# generate encoding for data vars
-	enc = dict(zlib=True, complevel=COMPRESSION) 
-	# with ProgressBar():
-	try:
+	enc = dict(zlib=True, complevel=COMPRESSION)
+	with ProgressBar():
 		xcrop.to_netcdf(target, format='NETCDF4_CLASSIC', encoding={var: enc for var in xcrop.data_vars})
-	except RuntimeError:
-		return False # will cause the file to be downloaded again
 
 	xdata.close()
 	return True
@@ -61,11 +50,11 @@ files = sys.argv[1:]
 for i, file in enumerate(files):
 	print(f"Processing [{i+1}/{len(files)}] {file}")
 	stime = time.time()
-	while not process_ww3(file, file + '.tmp'):
-		date = file.split('.')[-2]
-		print('File has errors... Redownloading...')
-		os.system(f'wget -q https://polar.ncep.noaa.gov/waves/hindcasts/nopp-phase2/{date}/partitions/multi_reanal.partition.glo_30m.{date}.nc -O {file}')
-	print("Processed in %.3f" % (time.time() - stime))
-	print(f"Moving {file}")
-	os.rename(file + '.tmp', file) # Overwrite original file
+	try:
+		process_ww3(file, file + '.tmp')
+		print("Processed in %.3f" % (time.time() - stime))
+		print(f"Moving {file}")
+		os.rename(file + '.tmp', file) # Overwrite original file
+	except RuntimeError as e:
+		pass
 

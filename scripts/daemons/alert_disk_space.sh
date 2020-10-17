@@ -19,10 +19,10 @@ send_notification() {
 check_free_space() {
 	free_space=$(df "$1" | tail -n1 | awk '{print $4}')
 
-	if [[ $free_space -lt 100000000 ]]; then
-		send_mail "CENTEC: $1  Low free space." "$(df -h $1)"
+	if [[ $free_space -lt 70000000 ]]; then
+		send_notification "CENTEC: $1  Low free space." "$(df -h $1 | tail -n1 | awk '{print $4}')"
 		if [[ $free_space -lt 30000000 ]]; then
-			send_notification "CENTEC: $1  Low free space." "$(df -h $1 | tail -n1 | awk '{print $4}')"
+			send_mail "CENTEC: $1  Low free space." "$(df -h $1)"
 		fi
 	fi
 }

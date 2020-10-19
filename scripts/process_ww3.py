@@ -56,5 +56,4 @@ for i, file in enumerate(files):
 		print(f"Moving {file}")
 		os.rename(file + '.tmp', file) # Overwrite original file
 	except RuntimeError as e:
-		pass
-
+		print(f"\033[31mFailed processing {file}\033[m")

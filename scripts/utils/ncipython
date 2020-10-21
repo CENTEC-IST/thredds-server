@@ -1,56 +1,33 @@
-#!/bin/bash
+#!/home/rmc/progs/python/anaconda3/bin/python3
 
-if [[ "$1" = "help" || "$1" = "-help" || "$1" = "--help" || "$1" = "-h" ]]; then
-	echo "This script will open an iPython console with the supplied files opened as a netCDF4 dataset.
-
-	Usage:
-		nc-ipython [nc file] [nc file] ..."
-	exit
-fi
-
-/home/rmc/progs/python/anaconda3/bin/ipython --no-banner --no-confirm-exit -i -c """
 import sys
 import os
 import netCDF4 as nc
 import time
 import numpy as np
 import xarray
+from IPython import embed
 
-args = sys.argv[6:]
+args = sys.argv[1:]
 
 if not args:
-	print(\"Give me a netCDF file\")
+	print("Give me a netCDF file")
 	os._exit(1)
 
 if len(args) == 1:
 	try:
-		data = nc.Dataset(args[0])
-		xdata = xarray.open_dataset(args[0])
+		data = xarray.open_dataset(args[0])
 	except FileNotFoundError:
-		print(\"File not found \" + args[0])
+		print("File not found " + args[0])
 		os._exit(1)
 else:
 	data = []
 	for a in args:
 		try:
-			data.append(nc.Dataset(a))
+			data.append(xarray.open_dataset(a))
 		except FileNotFoundError:
-			print(\"File not found \" + a)
+			print("File not found " + a)
 			os._exit(1)
-
-def timeDim(data):
-	if 'time' in data.variables:
-		return 'time'
-	elif 'date' in data.variables:
-		return 'date'
-	raise KeyError('No time dimension recognized on this file ' + data.filepath())
-
-if type(data) == list:
-	datatime = [data[i].variables[timeDim(data[i])] for i in range(len(data))]
-else:
-	datatime = data.variables[timeDim(data)]
-print('\033[36mVariables\033[m: \'data\', \'args\', \'datatime\'\n\033[36mFunctions\033[m: \'timeof\'')
-
 
 # define some utility functions
 def timeof(val, units='seconds'):
@@ -61,6 +38,4 @@ def timeof(val, units='seconds'):
 	elif units.startswith('days'):
 		return time.strftime('%Y-%m-%d %H:%M:%S', time.gmtime(int(val*3600*24)))
 
-""" $@
-
-
+embed(display_banner=False)

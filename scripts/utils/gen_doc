@@ -17,7 +17,6 @@ def print_table(header, data, spacing=3, md=False):
 	sizes = []
 	for i, v in enumerate(header):
 		sizes.append(max(len(str(k[i])) for k in data+[header]))
-
 	for i, row in enumerate([header]+data):
 		if i == 1:
 			if not md:
@@ -28,7 +27,6 @@ def print_table(header, data, spacing=3, md=False):
 			if md and k == 0: print('| ', end='')
 			print(f"{value:<{sizes[k]+spacing}}", end='' if not md else '| ')
 		print()
-
 
 if len(sys.argv) == 1 or any(item in ("help", "-help", "--help", "-h") for item in sys.argv):
 	print("""This script generates documentation for a given number of files
@@ -91,7 +89,10 @@ for f in files:
 			date = data.variables[d].units.split()[2]
 			try:
 				date = '-'.join([date[:4]] + [f"{int(a):02}" for a in date.split('-')[1:]]) # sometimes dates arent zero padded...
-				hours = data.variables[d].units.split()[3][:7]
+				try:
+					hours = data.variables[d].units.split()[3][:7]
+				except IndexError:
+					hours = '00:00:00'
 				date = f"{date}T{hours}"
 			except ValueError: # maybe its already in the right format (with a Z in the end)
 				date = date[:-1]

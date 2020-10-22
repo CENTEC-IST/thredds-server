@@ -1,5 +1,18 @@
 #!/home/rmc/progs/python/anaconda3/bin/python3 -u
 
+# This script is intended to use only on NOPP2 WW3 netcdf files.
+#  It will cut the files in a Lat/Lon window that contains the atlantic ocean. And keep
+#  only 19 partitions on these files (to make them all have the same amount of partitions)
+# This scripts expects a list of files as arguments.
+#
+# Behavior:
+#  - Renames dimension variable 'date' to 'time
+#  - Change longitude from [0-360] to [-180,180]
+#  - Cut longitude, latitude to specified window
+#  - Discard partitions higher than PARTITIONS_TO_KEEP.
+#  - Save to temporary file at the same location, then overwrite original.
+#
+
 import sys, os
 import xarray
 from dask.diagnostics import ProgressBar

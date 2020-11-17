@@ -17,17 +17,22 @@ if not args:
 if len(args) == 1:
 	try:
 		data = xarray.open_dataset(args[0])
+	except ValueError:
+		print('\033[1;33mError decoding file. Skipping time decoding...\033[m')
+		data = xarray.open_dataset(args[0], decode_times=False)
 	except FileNotFoundError:
 		print("File not found " + args[0])
 		os._exit(1)
 else:
 	data = []
-	for a in args:
+	for i, a in enumerate(args):
 		try:
 			data.append(xarray.open_dataset(a))
+			globals()[f'data{i}'] = data[i]
 		except FileNotFoundError:
 			print("File not found " + a)
 			os._exit(1)
+	del(i,a)
 
 # define some utility functions
 def timeof(val, units='seconds'):

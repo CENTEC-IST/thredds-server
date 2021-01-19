@@ -1,4 +1,4 @@
-#!/home/rmc/progs/python/anaconda3/bin/python3
+#!/opt/anaconda3/bin/ipython3
 
 import sys
 import netCDF4 as nc

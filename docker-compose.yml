@@ -28,12 +28,12 @@ services:
 
               # ========================  LOGS
             - type: bind
-              source: ./log/tomcat/
-              target: /usr/local/tomcat/log/
+              source: ./logs/tomcat/
+              target: /usr/local/tomcat/logs/
 
             - type: bind
-              source: ./log/thredds/
-              target: /usr/local/tomcat/content/thredds/log/
+              source: ./logs/thredds/
+              target: /usr/local/tomcat/content/thredds/logs/
 
               # ===============================================
               #                    DATA

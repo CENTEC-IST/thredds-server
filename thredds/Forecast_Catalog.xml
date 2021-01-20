@@ -13,21 +13,21 @@
   <!-- GFS -->
   <!-- ========================================== -->
 
-  <datasetScan name="GFS" ID="GFS" path="GFS" location="content/data/forecast/GFS/" harvest="true">
-    <filter>
-      <include wildcard="*.nc"/>
-    </filter>
-    <addID/>
-    <sort>
-      <lexigraphicByName increasing="false"/>
-    </sort>
-    <addLatest/>
-    <addDatasetSize/>
-    <metadata inherited="true">
-      <serviceName>all</serviceName>
-      <dataType>Grid</dataType>
-    </metadata>
-  </datasetScan>
+  <!-- <datasetScan name="GFS" ID="GFS" path="GFS" location="content/data/forecast/GFS/" harvest="true"> -->
+  <!--   <filter> -->
+  <!--     <include wildcard="*.nc"/> -->
+  <!--   </filter> -->
+  <!--   <addID/> -->
+  <!--   <sort> -->
+  <!--     <lexigraphicByName increasing="false"/> -->
+  <!--   </sort> -->
+  <!--   <addLatest/> -->
+  <!--   <addDatasetSize/> -->
+  <!--   <metadata inherited="true"> -->
+  <!--     <serviceName>all</serviceName> -->
+  <!--     <dataType>Grid</dataType> -->
+  <!--   </metadata> -->
+  <!-- </datasetScan> -->
 
   <!-- <featureCollection name="GFS" featureType="FMRC" harvest="true" path="GFS"> -->
   <!--   <metadata inherited="true"> -->
@@ -40,21 +40,21 @@
   <!--   <update startup="true" rescan="* 0 4 * * ? *" trigger="allow"/> -->
   <!-- </featureCollection> -->
 
-  <datasetScan name="GFS.SURFACE" ID="GFS.SURFACE" path="GFS.SURFACE" location="content/data/forecast/GFS.SURFACE/" harvest="true">
-    <filter>
-      <include wildcard="*.nc"/>
-    </filter>
-    <addID/>
-    <sort>
-      <lexigraphicByName increasing="false"/>
-    </sort>
-    <addLatest/>
-    <addDatasetSize/>
-    <metadata inherited="true">
-      <serviceName>all</serviceName>
-      <dataType>Grid</dataType>
-    </metadata>
-  </datasetScan>
+  <!-- <datasetScan name="GFS.SURFACE" ID="GFS.SURFACE" path="GFS.SURFACE" location="content/data/forecast/GFS.SURFACE/" harvest="true"> -->
+  <!--   <filter> -->
+  <!--     <include wildcard="*.nc"/> -->
+  <!--   </filter> -->
+  <!--   <addID/> -->
+  <!--   <sort> -->
+  <!--     <lexigraphicByName increasing="false"/> -->
+  <!--   </sort> -->
+  <!--   <addLatest/> -->
+  <!--   <addDatasetSize/> -->
+  <!--   <metadata inherited="true"> -->
+  <!--     <serviceName>all</serviceName> -->
+  <!--     <dataType>Grid</dataType> -->
+  <!--   </metadata> -->
+  <!-- </datasetScan> -->
 
   <!-- <featureCollection name="GFS.SURFACE" featureType="FMRC" harvest="true" path="GFS.SURFACE"> -->
   <!--   <metadata inherited="true"> -->
@@ -71,21 +71,21 @@
   <!-- WW3 -->
   <!-- ========================================== -->
 
-  <datasetScan name="WW3" ID="WW3" path="WW3" location="content/data/forecast/WW3/" harvest="true">
-    <filter>
-      <include wildcard="*.nc"/>
-    </filter>
-    <addID/>
-    <sort>
-      <lexigraphicByName increasing="false"/>
-    </sort>
-    <addLatest/>
-    <addDatasetSize/>
-    <metadata inherited="true">
-      <serviceName>all</serviceName>
-      <dataType>Grid</dataType>
-    </metadata>
-  </datasetScan>
+  <!-- <datasetScan name="WW3" ID="WW3" path="WW3" location="content/data/forecast/WW3/" harvest="true"> -->
+  <!--   <filter> -->
+  <!--     <include wildcard="*.nc"/> -->
+  <!--   </filter> -->
+  <!--   <addID/> -->
+  <!--   <sort> -->
+  <!--     <lexigraphicByName increasing="false"/> -->
+  <!--   </sort> -->
+  <!--   <addLatest/> -->
+  <!--   <addDatasetSize/> -->
+  <!--   <metadata inherited="true"> -->
+  <!--     <serviceName>all</serviceName> -->
+  <!--     <dataType>Grid</dataType> -->
+  <!--   </metadata> -->
+  <!-- </datasetScan> -->
 
   <!-- <featureCollection name="WW3" featureType="FMRC" harvest="true" path="WW3"> -->
   <!--   <metadata inherited="true"> -->

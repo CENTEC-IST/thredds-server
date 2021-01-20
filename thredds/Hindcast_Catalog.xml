@@ -83,7 +83,7 @@
   <!-- WW3 -->
   <!-- ========================================== -->
 
-	  <!-- TODO this is commented since it will consume ALL available memory -->
+      <!-- TODO this is commented since it will consume ALL available memory -->
   <!-- <featureCollection name="WW3 ST4" featureType="FMRC" harvest="true" path="ww3st4/"> -->
   <!--   <metadata inherited="true"> -->
   <!--     <serviceName>all</serviceName> -->

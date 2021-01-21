@@ -45,37 +45,37 @@ services:
 
               #  ERA 5
             - type: bind
-              source: /media/data/degas/model/ECMWF/ERA5/
+              source: /media/data/hindcast/ECMWF/ERA5/
               target: /usr/local/tomcat/content/thredds/public/data/hindcast/ERA5/
               read_only: true
 
               #  WAVERYS
             - type: bind
-              source: /media/data/degas/model/WAVERYS/
+              source: /media/data/hindcast/WAVERYS/
               target: /usr/local/tomcat/content/thredds/public/data/hindcast/WAVERYS/
               read_only: true
 
               #  WAVERYS
             - type: bind
-              source: /media/data/degas/model/IFREMER/
+              source: /media/data/hindcast/IFREMER/
               target: /usr/local/tomcat/content/thredds/public/data/hindcast/IFREMER/
               read_only: true
 
               #  CFSR
             - type: bind
-              source: /media/data/monet/hindcast/NCEP/atmos/CFSR/
+              source: /media/data/hindcast/NCEP/atmos/CFSR/
               target: /usr/local/tomcat/content/thredds/public/data/hindcast/CFSR/
               read_only: true
 
               #  CFSv2
             - type: bind
-              source: /media/data/monet/hindcast/NCEP/atmos/CFSv2/
+              source: /media/data/hindcast/NCEP/atmos/CFSv2/
               target: /usr/local/tomcat/content/thredds/public/data/hindcast/CFSv2/
               read_only: true
 
               #  WW3 ST4 - nopp2
             - type: bind
-              source: /media/data/monet/hindcast/NCEP/wave/nopp-phase2/netcdf/ # TODO -- This is temporary
+              source: /media/data/hindcast/NCEP/wave/nopp-phase2/netcdf/ # TODO -- This is temporary
               target: /usr/local/tomcat/content/thredds/public/data/hindcast/WW3ST4/
               read_only: true
 
@@ -132,37 +132,37 @@ services:
 
               #  ERA 5
             - type: bind
-              source: /media/data/degas/model/ECMWF/ERA5/
+              source: /media/data/hindcast/ECMWF/ERA5/
               target: /usr/local/tomcat/content/thredds/public/data/hindcast/ERA5/
               read_only: true
 
               #  WAVERYS
             - type: bind
-              source: /media/data/degas/model/WAVERYS/
+              source: /media/data/hindcast/WAVERYS/
               target: /usr/local/tomcat/content/thredds/public/data/hindcast/WAVERYS/
               read_only: true
 
               #  WAVERYS
             - type: bind
-              source: /media/data/degas/model/IFREMER/
+              source: /media/data/hindcast/IFREMER/
               target: /usr/local/tomcat/content/thredds/public/data/hindcast/IFREMER/
               read_only: true
 
               #  CFSR
             - type: bind
-              source: /media/data/monet/hindcast/NCEP/atmos/CFSR/
+              source: /media/data/hindcast/NCEP/atmos/CFSR/
               target: /usr/local/tomcat/content/thredds/public/data/hindcast/CFSR/
               read_only: true
 
               #  CFSv2
             - type: bind
-              source: /media/data/monet/hindcast/NCEP/atmos/CFSv2/
+              source: /media/data/hindcast/NCEP/atmos/CFSv2/
               target: /usr/local/tomcat/content/thredds/public/data/hindcast/CFSv2/
               read_only: true
 
               #  WW3 ST4 - nopp2
             - type: bind
-              source: /media/data/monet/hindcast/NCEP/wave/nopp-phase2/netcdf/ # TODO -- This is temporary
+              source: /media/data/hindcast/NCEP/wave/nopp-phase2/netcdf/ # TODO -- This is temporary
               target: /usr/local/tomcat/content/thredds/public/data/hindcast/WW3ST4/
               read_only: true
 

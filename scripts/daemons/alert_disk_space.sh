@@ -11,9 +11,9 @@ send_mail() {
 }
 
 send_notification() {
-	local KEY=$(cat /home/eximus/simplepush_key)
+	local KEY=$(cat /home/eximus/.simplepush_key)
 	local data="key=${KEY}&title=${1}&msg=${2}"
-	curl -s --data "$data" https://api.simplepush.io/send 
+	curl -s --data "$data" https://api.simplepush.io/send
 }
 
 check_free_space() {

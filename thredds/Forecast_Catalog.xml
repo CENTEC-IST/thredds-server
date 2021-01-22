@@ -9,11 +9,163 @@
     <service name="ncss" serviceType="NetcdfSubset" base="/thredds/ncss/"/>
   </service>
 
-  <!-- ========================================== -->
-  <!-- GFS -->
-  <!-- ========================================== -->
+  <featureCollection name="CFS" featureType="FMRC" harvest="true" path="CFS">
+    <metadata inherited="true">
+      <serviceName>all</serviceName>
+      <dataType>Grid</dataType>
+      <dataFormat>NetCDF</dataFormat>
+    </metadata>
+    <collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/CFS/**/gfs.*\.nc$" dateFormatMark="#forecast/CFS/#yyyyMMdd" olderThan="5 min"/>
+    <update startup="true" rescan="* 0 4 * * ? *" trigger="allow"/>
+  </featureCollection>
 
-  <!-- <datasetScan name="GFS" ID="GFS" path="GFS" location="content/data/forecast/GFS/" harvest="true"> -->
+
+  <featureCollection name="CMCE" featureType="FMRC" harvest="true" path="CMCE">
+    <metadata inherited="true">
+      <serviceName>all</serviceName>
+      <dataType>Grid</dataType>
+      <dataFormat>NetCDF</dataFormat>
+    </metadata>
+    <collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/CMCE/**/gfs.*\.nc$" dateFormatMark="#forecast/CMCE/#yyyyMMdd" olderThan="5 min"/>
+    <update startup="true" rescan="* 0 4 * * ? *" trigger="allow"/>
+  </featureCollection>
+
+
+  <featureCollection name="FENS" featureType="FMRC" harvest="true" path="FENS">
+    <metadata inherited="true">
+      <serviceName>all</serviceName>
+      <dataType>Grid</dataType>
+      <dataFormat>NetCDF</dataFormat>
+    </metadata>
+    <collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/FENS/**/gfs.*\.nc$" dateFormatMark="#forecast/FENS/#yyyyMMdd" olderThan="5 min"/>
+    <update startup="true" rescan="* 0 4 * * ? *" trigger="allow"/>
+  </featureCollection>
+
+
+  <featureCollection name="GDAS" featureType="FMRC" harvest="true" path="GDAS">
+    <metadata inherited="true">
+      <serviceName>all</serviceName>
+      <dataType>Grid</dataType>
+      <dataFormat>NetCDF</dataFormat>
+    </metadata>
+    <collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/GDAS/**/gfs.*\.nc$" dateFormatMark="#forecast/GDAS/#yyyyMMdd" olderThan="5 min"/>
+    <update startup="true" rescan="* 0 4 * * ? *" trigger="allow"/>
+  </featureCollection>
+
+
+  <featureCollection name="GEFSATMOS" featureType="FMRC" harvest="true" path="GEFSATMOS">
+    <metadata inherited="true">
+      <serviceName>all</serviceName>
+      <dataType>Grid</dataType>
+      <dataFormat>NetCDF</dataFormat>
+    </metadata>
+    <collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/GEFSATMOS/**/gfs.*\.nc$" dateFormatMark="#forecast/GEFSATMOS/#yyyyMMdd" olderThan="5 min"/>
+    <update startup="true" rescan="* 0 4 * * ? *" trigger="allow"/>
+  </featureCollection>
+
+
+  <featureCollection name="GEFSWAVES" featureType="FMRC" harvest="true" path="GEFSWAVES">
+    <metadata inherited="true">
+      <serviceName>all</serviceName>
+      <dataType>Grid</dataType>
+      <dataFormat>NetCDF</dataFormat>
+    </metadata>
+    <collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/GEFSWAVES/**/gfs.*\.nc$" dateFormatMark="#forecast/GEFSWAVES/#yyyyMMdd" olderThan="5 min"/>
+    <update startup="true" rescan="* 0 4 * * ? *" trigger="allow"/>
+  </featureCollection>
+
+
+  <featureCollection name="GENS" featureType="FMRC" harvest="true" path="GENS">
+    <metadata inherited="true">
+      <serviceName>all</serviceName>
+      <dataType>Grid</dataType>
+      <dataFormat>NetCDF</dataFormat>
+    </metadata>
+    <collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/GENS/**/gfs.*\.nc$" dateFormatMark="#forecast/GENS/#yyyyMMdd" olderThan="5 min"/>
+    <update startup="true" rescan="* 0 4 * * ? *" trigger="allow"/>
+  </featureCollection>
+
+
+  <featureCollection name="GFS" featureType="FMRC" harvest="true" path="GFS">
+    <metadata inherited="true">
+      <serviceName>all</serviceName>
+      <dataType>Grid</dataType>
+      <dataFormat>NetCDF</dataFormat>
+    </metadata>
+    <collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/GFS/**/gfs.*\.nc$" dateFormatMark="#forecast/GFS/#yyyyMMdd" olderThan="5 min"/>
+    <update startup="true" rescan="* 0 4 * * ? *" trigger="allow"/>
+  </featureCollection>
+
+
+  <featureCollection name="GFS_SURFACE" featureType="FMRC" harvest="true" path="GFS_SURFACE">
+    <metadata inherited="true">
+      <serviceName>all</serviceName>
+      <dataType>Grid</dataType>
+      <dataFormat>NetCDF</dataFormat>
+    </metadata>
+    <collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/GFS_SURFACE/**/gfs.*\.nc$" dateFormatMark="#forecast/GFS_SURFACE/#yyyyMMdd" olderThan="5 min"/>
+    <update startup="true" rescan="* 0 4 * * ? *" trigger="allow"/>
+  </featureCollection>
+
+
+  <featureCollection name="ICON" featureType="FMRC" harvest="true" path="ICON">
+    <metadata inherited="true">
+      <serviceName>all</serviceName>
+      <dataType>Grid</dataType>
+      <dataFormat>NetCDF</dataFormat>
+    </metadata>
+    <collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/ICON/**/gfs.*\.nc$" dateFormatMark="#forecast/ICON/#yyyyMMdd" olderThan="5 min"/>
+    <update startup="true" rescan="* 0 4 * * ? *" trigger="allow"/>
+  </featureCollection>
+
+
+  <featureCollection name="ICONB" featureType="FMRC" harvest="true" path="ICONB">
+    <metadata inherited="true">
+      <serviceName>all</serviceName>
+      <dataType>Grid</dataType>
+      <dataFormat>NetCDF</dataFormat>
+    </metadata>
+    <collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/ICONB/**/gfs.*\.nc$" dateFormatMark="#forecast/ICONB/#yyyyMMdd" olderThan="5 min"/>
+    <update startup="true" rescan="* 0 4 * * ? *" trigger="allow"/>
+  </featureCollection>
+
+
+  <featureCollection name="ICONEPS" featureType="FMRC" harvest="true" path="ICONEPS">
+    <metadata inherited="true">
+      <serviceName>all</serviceName>
+      <dataType>Grid</dataType>
+      <dataFormat>NetCDF</dataFormat>
+    </metadata>
+    <collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/ICONEPS/**/gfs.*\.nc$" dateFormatMark="#forecast/ICONEPS/#yyyyMMdd" olderThan="5 min"/>
+    <update startup="true" rescan="* 0 4 * * ? *" trigger="allow"/>
+  </featureCollection>
+
+
+  <featureCollection name="WAMICON" featureType="FMRC" harvest="true" path="WAMICON">
+    <metadata inherited="true">
+      <serviceName>all</serviceName>
+      <dataType>Grid</dataType>
+      <dataFormat>NetCDF</dataFormat>
+    </metadata>
+    <collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/WAMICON/**/gfs.*\.nc$" dateFormatMark="#forecast/WAMICON/#yyyyMMdd" olderThan="5 min"/>
+    <update startup="true" rescan="* 0 4 * * ? *" trigger="allow"/>
+  </featureCollection>
+
+
+  <featureCollection name="WW3" featureType="FMRC" harvest="true" path="WW3">
+    <metadata inherited="true">
+      <serviceName>all</serviceName>
+      <dataType>Grid</dataType>
+      <dataFormat>NetCDF</dataFormat>
+    </metadata>
+    <collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/WW3/**/gfs.*\.nc$" dateFormatMark="#forecast/WW3/#yyyyMMdd" olderThan="5 min"/>
+    <update startup="true" rescan="* 0 4 * * ? *" trigger="allow"/>
+  </featureCollection>
+
+
+  <!-- THIS IS AN EXAMPLE IN CASE WE WANT TO SERVE JUST THE RAW FILES -->
+
+  <!-- <datasetScan name="GFS/data" ID="GFS_raw" path="GFS/data" location="content/data/forecast/GFS/" harvest="true"> -->
   <!--   <filter> -->
   <!--     <include wildcard="*.nc"/> -->
   <!--   </filter> -->
@@ -29,73 +181,3 @@
   <!--   </metadata> -->
   <!-- </datasetScan> -->
 
-  <!-- <featureCollection name="GFS" featureType="FMRC" harvest="true" path="GFS"> -->
-  <!--   <metadata inherited="true"> -->
-  <!--     <serviceName>all</serviceName> -->
-  <!--     <dataType>Grid</dataType> -->
-  <!--     <dataFormat>NetCDF</dataFormat> -->
-  <!--   </metadata> -->
-  <!--   <!-1- <collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/GFS/*\.nc$" dateFormatMark="yyyyMM#.nc#$" olderThan="5 min"/> -1-> -->
-  <!--   <collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/GFS/gfs.#yyyyMMdd#00.*\.nc" olderThan="5 min"/> -->
-  <!--   <update startup="true" rescan="* 0 4 * * ? *" trigger="allow"/> -->
-  <!-- </featureCollection> -->
-
-  <!-- <datasetScan name="GFS.SURFACE" ID="GFS.SURFACE" path="GFS.SURFACE" location="content/data/forecast/GFS.SURFACE/" harvest="true"> -->
-  <!--   <filter> -->
-  <!--     <include wildcard="*.nc"/> -->
-  <!--   </filter> -->
-  <!--   <addID/> -->
-  <!--   <sort> -->
-  <!--     <lexigraphicByName increasing="false"/> -->
-  <!--   </sort> -->
-  <!--   <addLatest/> -->
-  <!--   <addDatasetSize/> -->
-  <!--   <metadata inherited="true"> -->
-  <!--     <serviceName>all</serviceName> -->
-  <!--     <dataType>Grid</dataType> -->
-  <!--   </metadata> -->
-  <!-- </datasetScan> -->
-
-  <!-- <featureCollection name="GFS.SURFACE" featureType="FMRC" harvest="true" path="GFS.SURFACE"> -->
-  <!--   <metadata inherited="true"> -->
-  <!--     <serviceName>all</serviceName> -->
-  <!--     <dataType>Grid</dataType> -->
-  <!--     <dataFormat>NetCDF</dataFormat> -->
-  <!--   </metadata> -->
-  <!--   <!-1- <collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/GFS/*\.nc$" dateFormatMark="yyyyMM#.nc#$" olderThan="5 min"/> -1-> -->
-  <!--   <collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/GFS.SURFACE/gfs.surface.#yyyyMMdd#00.*\.nc" olderThan="5 min"/> -->
-  <!--   <update startup="true" rescan="* 0 4 * * ? *" trigger="allow"/> -->
-  <!-- </featureCollection> -->
-
-  <!-- ========================================== -->
-  <!-- WW3 -->
-  <!-- ========================================== -->
-
-  <!-- <datasetScan name="WW3" ID="WW3" path="WW3" location="content/data/forecast/WW3/" harvest="true"> -->
-  <!--   <filter> -->
-  <!--     <include wildcard="*.nc"/> -->
-  <!--   </filter> -->
-  <!--   <addID/> -->
-  <!--   <sort> -->
-  <!--     <lexigraphicByName increasing="false"/> -->
-  <!--   </sort> -->
-  <!--   <addLatest/> -->
-  <!--   <addDatasetSize/> -->
-  <!--   <metadata inherited="true"> -->
-  <!--     <serviceName>all</serviceName> -->
-  <!--     <dataType>Grid</dataType> -->
-  <!--   </metadata> -->
-  <!-- </datasetScan> -->
-
-  <!-- <featureCollection name="WW3" featureType="FMRC" harvest="true" path="WW3"> -->
-  <!--   <metadata inherited="true"> -->
-  <!--     <serviceName>all</serviceName> -->
-  <!--     <dataType>Grid</dataType> -->
-  <!--     <dataFormat>NetCDF</dataFormat> -->
-  <!--   </metadata> -->
-  <!--   <!-1- <collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/GFS/*\.nc$" dateFormatMark="yyyyMM#.nc#$" olderThan="5 min"/> -1-> -->
-  <!--   <collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/WW3/ww3.#yyyyMMdd#00\.nc" olderThan="5 min"/> -->
-  <!--   <update startup="true" rescan="* 0 4 * * ? *" trigger="allow"/> -->
-  <!-- </featureCollection> -->
-
-</catalog>

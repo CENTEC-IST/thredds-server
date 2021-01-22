@@ -36,7 +36,7 @@ services:
               source: ./logs/thredds/
               target: /usr/local/tomcat/content/thredds/logs/
               #}}}1
-              
+
               # DATA {{{1
               # ===============================================
 
@@ -120,6 +120,16 @@ services:
               read_only: true
 
             - type: bind
+              source: /media/data/forecast/gfs/
+              target: /usr/local/tomcat/content/thredds/public/data/forecast/GFS/
+              read_only: true
+
+            - type: bind
+              source: /media/data/forecast/gfs_surface/
+              target: /usr/local/tomcat/content/thredds/public/data/forecast/GFS_SURFACE/
+              read_only: true
+
+            - type: bind
               source: /media/data/forecast/icon/
               target: /usr/local/tomcat/content/thredds/public/data/forecast/ICON/
               read_only: true
@@ -176,6 +186,7 @@ services:
         # }}}1
 
               # DATA {{{1
+              # ===============================================
 
               # HINDCAST {{{2
               # =========================
@@ -254,6 +265,16 @@ services:
             - type: bind
               source: /media/data/forecast/gens/
               target: /usr/local/tomcat/content/thredds/public/data/forecast/GENS/
+              read_only: true
+
+            - type: bind
+              source: /media/data/forecast/gfs/
+              target: /usr/local/tomcat/content/thredds/public/data/forecast/GFS/
+              read_only: true
+
+            - type: bind
+              source: /media/data/forecast/gfs_surface/
+              target: /usr/local/tomcat/content/thredds/public/data/forecast/GFS_SURFACE/
               read_only: true
 
             - type: bind

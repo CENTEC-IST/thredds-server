@@ -23,3 +23,5 @@ $ docker-compose start
 The `docker-compose.yml` file contains the path specification for the current server, and must be tweaked if the data paths change.
 
 The `catalog*.xml` files inside `thredds/` contain the specification for each individual dataset and must also be tweaked if anything changes.
+
+The `compose.env` file should also be configured, specially the `TDS_HOST` variable and all the GROUP / USER variables.

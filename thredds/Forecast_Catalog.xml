@@ -15,7 +15,7 @@
       <dataType>Grid</dataType>
       <dataFormat>NetCDF</dataFormat>
     </metadata>
-    <collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/CFS/**/gfs.*\.nc$" dateFormatMark="#forecast/CFS/#yyyyMMdd" olderThan="5 min"/>
+    <collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/CFS/**/cfs.*\.nc$" dateFormatMark="#forecast/CFS/#yyyyMMdd" olderThan="5 min"/>
     <update startup="true" rescan="* 0 4 * * ? *" trigger="allow"/>
   </featureCollection>
 
@@ -26,7 +26,7 @@
       <dataType>Grid</dataType>
       <dataFormat>NetCDF</dataFormat>
     </metadata>
-    <collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/CMCE/**/gfs.*\.nc$" dateFormatMark="#forecast/CMCE/#yyyyMMdd" olderThan="5 min"/>
+    <collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/CMCE/**/cmce.*\.nc$" dateFormatMark="#forecast/CMCE/#yyyyMMdd" olderThan="5 min"/>
     <update startup="true" rescan="* 0 4 * * ? *" trigger="allow"/>
   </featureCollection>
 
@@ -37,20 +37,20 @@
       <dataType>Grid</dataType>
       <dataFormat>NetCDF</dataFormat>
     </metadata>
-    <collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/FENS/**/gfs.*\.nc$" dateFormatMark="#forecast/FENS/#yyyyMMdd" olderThan="5 min"/>
+    <collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/FENS/**/fens.*\.nc$" dateFormatMark="#forecast/FENS/#yyyyMMdd" olderThan="5 min"/>
     <update startup="true" rescan="* 0 4 * * ? *" trigger="allow"/>
   </featureCollection>
 
 
-  <featureCollection name="GDAS" featureType="FMRC" harvest="true" path="GDAS">
-    <metadata inherited="true">
-      <serviceName>all</serviceName>
-      <dataType>Grid</dataType>
-      <dataFormat>NetCDF</dataFormat>
-    </metadata>
-    <collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/GDAS/**/gfs.*\.nc$" dateFormatMark="#forecast/GDAS/#yyyyMMdd" olderThan="5 min"/>
-    <update startup="true" rescan="* 0 4 * * ? *" trigger="allow"/>
-  </featureCollection>
+  <!-- <featureCollection name="GDAS" featureType="FMRC" harvest="true" path="GDAS"> -->
+  <!--   <metadata inherited="true"> -->
+  <!--     <serviceName>all</serviceName> -->
+  <!--     <dataType>Grid</dataType> -->
+  <!--     <dataFormat>NetCDF</dataFormat> -->
+  <!--   </metadata> -->
+  <!--   <collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/GDAS/**/gdas.*\.nc$" dateFormatMark="#forecast/GDAS/#yyyyMMdd" olderThan="5 min"/> -->
+  <!--   <update startup="true" rescan="* 0 4 * * ? *" trigger="allow"/> -->
+  <!-- </featureCollection> -->
 
 
   <featureCollection name="GEFSATMOS" featureType="FMRC" harvest="true" path="GEFSATMOS">
@@ -59,10 +59,19 @@
       <dataType>Grid</dataType>
       <dataFormat>NetCDF</dataFormat>
     </metadata>
-    <collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/GEFSATMOS/**/gfs.*\.nc$" dateFormatMark="#forecast/GEFSATMOS/#yyyyMMdd" olderThan="5 min"/>
+    <collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/GEFSATMOS/**/gefs\..*\.nc$" dateFormatMark="#forecast/GEFSATMOS/#yyyyMMdd" olderThan="5 min"/>
     <update startup="true" rescan="* 0 4 * * ? *" trigger="allow"/>
   </featureCollection>
 
+  <featureCollection name="GEFSATMOS_GUST" featureType="FMRC" harvest="true" path="GEFSATMOS_GUST">
+    <metadata inherited="true">
+      <serviceName>all</serviceName>
+      <dataType>Grid</dataType>
+      <dataFormat>NetCDF</dataFormat>
+    </metadata>
+    <collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/GEFSATMOS/**/gefs_gust.*\.nc$" dateFormatMark="#forecast/GEFSATMOS/#yyyyMMdd" olderThan="5 min"/>
+    <update startup="true" rescan="* 0 4 * * ? *" trigger="allow"/>
+  </featureCollection>
 
   <featureCollection name="GEFSWAVES" featureType="FMRC" harvest="true" path="GEFSWAVES">
     <metadata inherited="true">
@@ -70,7 +79,7 @@
       <dataType>Grid</dataType>
       <dataFormat>NetCDF</dataFormat>
     </metadata>
-    <collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/GEFSWAVES/**/gfs.*\.nc$" dateFormatMark="#forecast/GEFSWAVES/#yyyyMMdd" olderThan="5 min"/>
+    <collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/GEFSWAVES/**/gefs.*\.nc$" dateFormatMark="#forecast/GEFSWAVES/#yyyyMMdd" olderThan="5 min"/>
     <update startup="true" rescan="* 0 4 * * ? *" trigger="allow"/>
   </featureCollection>
 
@@ -81,7 +90,7 @@
       <dataType>Grid</dataType>
       <dataFormat>NetCDF</dataFormat>
     </metadata>
-    <collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/GENS/**/gfs.*\.nc$" dateFormatMark="#forecast/GENS/#yyyyMMdd" olderThan="5 min"/>
+    <collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/GENS/**/gefs.*\.nc$" dateFormatMark="#forecast/GENS/#yyyyMMdd" olderThan="5 min"/>
     <update startup="true" rescan="* 0 4 * * ? *" trigger="allow"/>
   </featureCollection>
 
@@ -103,7 +112,7 @@
       <dataType>Grid</dataType>
       <dataFormat>NetCDF</dataFormat>
     </metadata>
-    <collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/GFS_SURFACE/**/gfs.*\.nc$" dateFormatMark="#forecast/GFS_SURFACE/#yyyyMMdd" olderThan="5 min"/>
+    <collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/GFS_SURFACE/**/gfs.surface.*\.nc$" dateFormatMark="#forecast/GFS_SURFACE/#yyyyMMdd" olderThan="5 min"/>
     <update startup="true" rescan="* 0 4 * * ? *" trigger="allow"/>
   </featureCollection>
 
@@ -114,7 +123,7 @@
       <dataType>Grid</dataType>
       <dataFormat>NetCDF</dataFormat>
     </metadata>
-    <collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/ICON/**/gfs.*\.nc$" dateFormatMark="#forecast/ICON/#yyyyMMdd" olderThan="5 min"/>
+    <collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/ICON/**/icon.*\.nc$" dateFormatMark="#forecast/ICON/#yyyyMMdd" olderThan="5 min"/>
     <update startup="true" rescan="* 0 4 * * ? *" trigger="allow"/>
   </featureCollection>
 
@@ -125,7 +134,7 @@
       <dataType>Grid</dataType>
       <dataFormat>NetCDF</dataFormat>
     </metadata>
-    <collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/ICONB/**/gfs.*\.nc$" dateFormatMark="#forecast/ICONB/#yyyyMMdd" olderThan="5 min"/>
+    <collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/ICONB/**/icon.*\.nc$" dateFormatMark="#forecast/ICONB/#yyyyMMdd" olderThan="5 min"/>
     <update startup="true" rescan="* 0 4 * * ? *" trigger="allow"/>
   </featureCollection>
 
@@ -136,7 +145,7 @@
       <dataType>Grid</dataType>
       <dataFormat>NetCDF</dataFormat>
     </metadata>
-    <collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/ICONEPS/**/gfs.*\.nc$" dateFormatMark="#forecast/ICONEPS/#yyyyMMdd" olderThan="5 min"/>
+    <collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/ICONEPS/**/iconeps.*\.nc$" dateFormatMark="#forecast/ICONEPS/#yyyyMMdd" olderThan="5 min"/>
     <update startup="true" rescan="* 0 4 * * ? *" trigger="allow"/>
   </featureCollection>
 
@@ -147,7 +156,7 @@
       <dataType>Grid</dataType>
       <dataFormat>NetCDF</dataFormat>
     </metadata>
-    <collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/WAMICON/**/gfs.*\.nc$" dateFormatMark="#forecast/WAMICON/#yyyyMMdd" olderThan="5 min"/>
+    <collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/WAMICON/**/wamicon.*\.nc$" dateFormatMark="#forecast/WAMICON/#yyyyMMdd" olderThan="5 min"/>
     <update startup="true" rescan="* 0 4 * * ? *" trigger="allow"/>
   </featureCollection>
 
@@ -158,10 +167,11 @@
       <dataType>Grid</dataType>
       <dataFormat>NetCDF</dataFormat>
     </metadata>
-    <collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/WW3/**/gfs.*\.nc$" dateFormatMark="#forecast/WW3/#yyyyMMdd" olderThan="5 min"/>
+    <collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/WW3/**/multi_1.*\.nc$" dateFormatMark="#forecast/WW3/#yyyyMMdd" olderThan="5 min"/>
     <update startup="true" rescan="* 0 4 * * ? *" trigger="allow"/>
   </featureCollection>
 
+</catalog>
 
   <!-- THIS IS AN EXAMPLE IN CASE WE WANT TO SERVE JUST THE RAW FILES -->
 
@@ -180,4 +190,3 @@
   <!--     <dataType>Grid</dataType> -->
   <!--   </metadata> -->
   <!-- </datasetScan> -->
-

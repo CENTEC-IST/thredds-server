@@ -1,3 +1,4 @@
+# vi: foldmethod=marker
 ---
 version: '3.7'
 
@@ -10,7 +11,7 @@ services:
             - "8443:8443"
         container_name: thredds
         volumes:
-            # LINK CONFIGS
+            # LINK CONFIGS {{{1
             - type: bind # link threddsConfig separetly because the docker container changes permissions on this file inside /thredds
               source: ./threddsConfig.xml
               target: /usr/local/tomcat/content/thredds/threddsConfig.xml
@@ -34,13 +35,12 @@ services:
             - type: bind
               source: ./logs/thredds/
               target: /usr/local/tomcat/content/thredds/logs/
-
+              #}}}1
+              
+              # DATA {{{1
               # ===============================================
-              #                    DATA
-              # ===============================================
 
-              # =========================
-              #         HINDCAST
+              # HINDCAST {{{2
               # =========================
 
               #  ERA 5
@@ -79,25 +79,73 @@ services:
               target: /usr/local/tomcat/content/thredds/public/data/hindcast/WW3ST4/
               read_only: true
 
+              # }}}2
+
+              # FORECAST {{{2
               # =========================
-              #         FORECAST
-              # =========================
 
-            # - type: bind
-            #   source: /media/monet/public/model/forecast/hardlinked_opftp/gfs/
-            #   target: /usr/local/tomcat/content/thredds/public/data/forecast/GFS/
-            #   read_only: true
+            - type: bind
+              source: /media/data/forecast/cfs/
+              target: /usr/local/tomcat/content/thredds/public/data/forecast/CFS/
+              read_only: true
 
-            # - type: bind
-            #   source: /media/monet/public/model/forecast/hardlinked_opftp/gfs.surface/
-            #   target: /usr/local/tomcat/content/thredds/public/data/forecast/GFS.SURFACE/
-            #   read_only: true
+            - type: bind
+              source: /media/data/forecast/cmce/
+              target: /usr/local/tomcat/content/thredds/public/data/forecast/CMCE/
+              read_only: true
 
-            # - type: bind
-            #   source: /media/monet/public/model/forecast/hardlinked_opftp/ww3/
-            #   target: /usr/local/tomcat/content/thredds/public/data/forecast/WW3/
-            #   read_only: true
+            - type: bind
+              source: /media/data/forecast/fens/
+              target: /usr/local/tomcat/content/thredds/public/data/forecast/FENS/
+              read_only: true
 
+            - type: bind
+              source: /media/data/forecast/gdas/
+              target: /usr/local/tomcat/content/thredds/public/data/forecast/GDAS/
+              read_only: true
+
+            - type: bind
+              source: /media/data/forecast/gefsAtmos/
+              target: /usr/local/tomcat/content/thredds/public/data/forecast/GEFSATMOS/
+              read_only: true
+
+            - type: bind
+              source: /media/data/forecast/gefsWaves/
+              target: /usr/local/tomcat/content/thredds/public/data/forecast/GEFSWAVES/
+              read_only: true
+
+            - type: bind
+              source: /media/data/forecast/gens/
+              target: /usr/local/tomcat/content/thredds/public/data/forecast/GENS/
+              read_only: true
+
+            - type: bind
+              source: /media/data/forecast/icon/
+              target: /usr/local/tomcat/content/thredds/public/data/forecast/ICON/
+              read_only: true
+
+            - type: bind
+              source: /media/data/forecast/iconB/
+              target: /usr/local/tomcat/content/thredds/public/data/forecast/ICONB/
+              read_only: true
+
+            - type: bind
+              source: /media/data/forecast/iconeps/
+              target: /usr/local/tomcat/content/thredds/public/data/forecast/ICONEPS/
+              read_only: true
+
+            - type: bind
+              source: /media/data/forecast/wamicon/
+              target: /usr/local/tomcat/content/thredds/public/data/forecast/WAMICON/
+              read_only: true
+
+            - type: bind
+              source: /media/data/forecast/ww3/
+              target: /usr/local/tomcat/content/thredds/public/data/forecast/WW3/
+              read_only: true
+
+            # }}}2
+            # }}}1
 
         env_file:
             - "compose.env"
@@ -110,6 +158,8 @@ services:
         image: unidata/tdm-docker:latest
         container_name: tdm
         volumes:
+
+            # LINK CONFIGS {{{1
             - type: bind
               source: ./thredds
               target: /usr/local/tomcat/content/thredds
@@ -123,11 +173,11 @@ services:
             - type: bind
               source: ./tdm/
               target: /usr/local/tomcat/content/tdm/
+        # }}}1
 
-              # ========================  DATA
+              # DATA {{{1
 
-              # =========================
-              #         HINDCAST
+              # HINDCAST {{{2
               # =========================
 
               #  ERA 5
@@ -165,6 +215,74 @@ services:
               source: /media/data/hindcast/NCEP/wave/nopp-phase2/netcdf/ # TODO -- This is temporary
               target: /usr/local/tomcat/content/thredds/public/data/hindcast/WW3ST4/
               read_only: true
+
+              # }}}2
+
+              # FORECAST {{{2
+              # =========================
+
+            - type: bind
+              source: /media/data/forecast/cfs/
+              target: /usr/local/tomcat/content/thredds/public/data/forecast/CFS/
+              read_only: true
+
+            - type: bind
+              source: /media/data/forecast/cmce/
+              target: /usr/local/tomcat/content/thredds/public/data/forecast/CMCE/
+              read_only: true
+
+            - type: bind
+              source: /media/data/forecast/fens/
+              target: /usr/local/tomcat/content/thredds/public/data/forecast/FENS/
+              read_only: true
+
+            - type: bind
+              source: /media/data/forecast/gdas/
+              target: /usr/local/tomcat/content/thredds/public/data/forecast/GDAS/
+              read_only: true
+
+            - type: bind
+              source: /media/data/forecast/gefsAtmos/
+              target: /usr/local/tomcat/content/thredds/public/data/forecast/GEFSATMOS/
+              read_only: true
+
+            - type: bind
+              source: /media/data/forecast/gefsWaves/
+              target: /usr/local/tomcat/content/thredds/public/data/forecast/GEFSWAVES/
+              read_only: true
+
+            - type: bind
+              source: /media/data/forecast/gens/
+              target: /usr/local/tomcat/content/thredds/public/data/forecast/GENS/
+              read_only: true
+
+            - type: bind
+              source: /media/data/forecast/icon/
+              target: /usr/local/tomcat/content/thredds/public/data/forecast/ICON/
+              read_only: true
+
+            - type: bind
+              source: /media/data/forecast/iconB/
+              target: /usr/local/tomcat/content/thredds/public/data/forecast/ICONB/
+              read_only: true
+
+            - type: bind
+              source: /media/data/forecast/iconeps/
+              target: /usr/local/tomcat/content/thredds/public/data/forecast/ICONEPS/
+              read_only: true
+
+            - type: bind
+              source: /media/data/forecast/wamicon/
+              target: /usr/local/tomcat/content/thredds/public/data/forecast/WAMICON/
+              read_only: true
+
+            - type: bind
+              source: /media/data/forecast/ww3/
+              target: /usr/local/tomcat/content/thredds/public/data/forecast/WW3/
+              read_only: true
+
+            # }}}2
+            # }}}1
 
         env_file:
             - "compose.env"

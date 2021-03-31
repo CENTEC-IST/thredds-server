@@ -1,4 +1,4 @@
-#!/home/rmc/progs/python/anaconda3/bin/python3
+#!/bin/env python3
 
 # This script was intended to see if timestamps match between files relative to the same date but that contain different variables
 
@@ -25,7 +25,7 @@ if len(d1) != len(d2):
 	sys.exit()
 
 for f in range(len(d1)):
-	print(f"Testing [{f}/{len(d1)}] {d1[f]} {d2[f]}")
+	print(f"Testing [{f+1}/{len(d1)}] {d1[f]} {d2[f]}")
 	dd1 = nc.Dataset(d1[f])
 	dd2 = nc.Dataset(d2[f])
 	if not (dd1.variables['time'][:] == dd2.variables['time'][:]).all():

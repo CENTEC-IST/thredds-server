@@ -41,7 +41,7 @@ for more information.
     </global>
 
     <overrides>
-        
+
         <datasetPath pathSpec="testAll/*eta_211.nc">
             <!-- Will apply to all paths that match the path spec above -->
             <pathDefaults>
@@ -58,7 +58,7 @@ for more information.
                 </variable>
             </variables>
         </datasetPath>
-        
+
     </overrides>
 
 </wmsConfig>

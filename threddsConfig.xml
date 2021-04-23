@@ -134,11 +134,10 @@
   <!--
   Caching open NetcdfFile objects.
   default is to allow 50 - 100 open files, cleanup every 11 minutes
-      TODO Change this setting for the Dell
   -->
   <NetcdfFileCache>
-    <minFiles>50</minFiles>
-    <maxFiles>100</maxFiles>
+    <minFiles>100</minFiles>
+    <maxFiles>200</maxFiles>
     <scour>11 min</scour>
   </NetcdfFileCache>
 

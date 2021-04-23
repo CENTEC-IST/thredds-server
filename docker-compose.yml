@@ -55,7 +55,7 @@ services:
               target: /usr/local/tomcat/content/thredds/public/data/hindcast/WAVERYS/
               read_only: true
 
-              #  WAVERYS
+              #  IFREMER
             - type: bind
               source: /media/data/hindcast/IFREMER/
               target: /usr/local/tomcat/content/thredds/public/data/hindcast/IFREMER/
@@ -203,7 +203,7 @@ services:
               target: /usr/local/tomcat/content/thredds/public/data/hindcast/WAVERYS/
               read_only: true
 
-              #  WAVERYS
+              #  IFREMER
             - type: bind
               source: /media/data/hindcast/IFREMER/
               target: /usr/local/tomcat/content/thredds/public/data/hindcast/IFREMER/

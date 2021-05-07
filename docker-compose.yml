@@ -55,10 +55,16 @@ services:
               target: /usr/local/tomcat/content/thredds/public/data/hindcast/WAVERYS/
               read_only: true
 
-              #  IFREMER
+              #  IFREMER_CFSR
             - type: bind
-              source: /media/data/hindcast/IFREMER/
-              target: /usr/local/tomcat/content/thredds/public/data/hindcast/IFREMER/
+              source: /media/data/hindcast/IFREMER/inputCFSR/
+              target: /usr/local/tomcat/content/thredds/public/data/hindcast/IFREMER_CFSR/
+              read_only: true
+
+              #  IFREMER_ERA5
+            - type: bind
+              source: /media/data/hindcast/IFREMER/inputERA5/
+              target: /usr/local/tomcat/content/thredds/public/data/hindcast/IFREMER_ERA5/
               read_only: true
 
               #  CFSR
@@ -203,10 +209,16 @@ services:
               target: /usr/local/tomcat/content/thredds/public/data/hindcast/WAVERYS/
               read_only: true
 
-              #  IFREMER
+              #  IFREMER_CFSR
             - type: bind
-              source: /media/data/hindcast/IFREMER/
-              target: /usr/local/tomcat/content/thredds/public/data/hindcast/IFREMER/
+              source: /media/data/hindcast/IFREMER/inputCFSR/
+              target: /usr/local/tomcat/content/thredds/public/data/hindcast/IFREMER_CFSR/
+              read_only: true
+
+              #  IFREMER_ERA5
+            - type: bind
+              source: /media/data/hindcast/IFREMER/inputERA5/
+              target: /usr/local/tomcat/content/thredds/public/data/hindcast/IFREMER_ERA5/
               read_only: true
 
               #  CFSR

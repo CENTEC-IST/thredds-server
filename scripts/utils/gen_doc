@@ -82,9 +82,9 @@ for f in files:
 				sys.exit(1)
 		elif d in TIME_DIMS:
 			units = data.variables[d].units.split()[0]
-			if d in dims and units != dims[d][-1]:
-				print(f"\n'{d}' dimension units on '{f}' dont match previous files")
-				sys.exit(1)
+			# if d in dims and units != dims[d][-1]:
+			# 	print(f"\n'{d}' dimension units on '{f}' dont match previous files")
+			# 	sys.exit(1)
 
 			date = data.variables[d].units.split()[2]
 			try:

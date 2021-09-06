@@ -101,11 +101,6 @@ services:
               read_only: true
 
             - type: bind
-              source: /media/data/forecast/fens/
-              target: /usr/local/tomcat/content/thredds/public/data/forecast/FENS/
-              read_only: true
-
-            - type: bind
               source: /media/data/forecast/gdas/
               target: /usr/local/tomcat/content/thredds/public/data/forecast/GDAS/
               read_only: true
@@ -252,11 +247,6 @@ services:
             - type: bind
               source: /media/data/forecast/cmce/
               target: /usr/local/tomcat/content/thredds/public/data/forecast/CMCE/
-              read_only: true
-
-            - type: bind
-              source: /media/data/forecast/fens/
-              target: /usr/local/tomcat/content/thredds/public/data/forecast/FENS/
               read_only: true
 
             - type: bind

@@ -30,18 +30,6 @@
     <update startup="true" rescan="* 0 4 * * ? *" trigger="allow"/>
   </featureCollection>
 
-
-  <featureCollection name="FENS" featureType="FMRC" harvest="true" path="FENS">
-    <metadata inherited="true">
-      <serviceName>all</serviceName>
-      <dataType>Grid</dataType>
-      <dataFormat>NetCDF</dataFormat>
-    </metadata>
-    <collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/FENS/**/fens.*\.nc$" dateFormatMark="#forecast/FENS/#yyyyMMdd" olderThan="5 min"/>
-    <update startup="true" rescan="* 0 4 * * ? *" trigger="allow"/>
-  </featureCollection>
-
-
   <!-- <featureCollection name="GDAS" featureType="FMRC" harvest="true" path="GDAS"> -->
   <!--   <metadata inherited="true"> -->
   <!--     <serviceName>all</serviceName> -->

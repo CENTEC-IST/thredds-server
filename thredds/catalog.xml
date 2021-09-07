@@ -2,4 +2,5 @@
 <catalog xmlns="http://www.unidata.ucar.edu/namespaces/thredds/InvCatalog/v1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="THREDDS Server Catalog" xsi:schemaLocation="http://www.unidata.ucar.edu/namespaces/thredds/InvCatalog/v1.0     http://www.unidata.ucar.edu/schemas/thredds/InvCatalog.1.0.6.xsd">
   <catalogRef xlink:title="Hindcast" xlink:href="Hindcast_Catalog.xml" name=""/>
   <catalogRef xlink:title="Forecast" xlink:href="Forecast_Catalog.xml" name=""/>
+  <catalogRef xlink:title="Operational" xlink:href="Operational_Catalog.xml" name=""/>
 </catalog>

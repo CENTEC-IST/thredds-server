@@ -156,6 +156,17 @@ services:
               read_only: true
 
             # }}}2
+
+              # OPERATIONAL {{{2
+              # =========================
+
+            - type: bind
+              source: /media/data/operational/ww3gfs/
+              target: /usr/local/tomcat/content/thredds/public/data/operational/ww3gfs/
+              read_only: true
+
+            # }}}2
+
             # }}}1
 
         env_file:
@@ -305,6 +316,17 @@ services:
               read_only: true
 
             # }}}2
+
+              # OPERATIONAL {{{2
+              # =========================
+
+            - type: bind
+              source: /media/data/operational/ww3gfs/
+              target: /usr/local/tomcat/content/thredds/public/data/operational/ww3gfs/
+              read_only: true
+
+            # }}}2
+
             # }}}1
 
         env_file:

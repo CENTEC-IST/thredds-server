@@ -16,7 +16,7 @@
       <dataFormat>NetCDF</dataFormat>
     </metadata>
     <collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/CFS/**/cfs.*\.nc$" dateFormatMark="#forecast/CFS/#yyyyMMdd" olderThan="5 min"/>
-    <update startup="true" rescan="* 0 4 * * ? *" trigger="allow"/>
+    <update startup="true" rescan="0 0 10 * * ? *" trigger="allow"/>
   </featureCollection>
 
 
@@ -27,7 +27,7 @@
       <dataFormat>NetCDF</dataFormat>
     </metadata>
     <collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/CMCE/**/cmce.*\.nc$" dateFormatMark="#forecast/CMCE/#yyyyMMdd" olderThan="5 min"/>
-    <update startup="true" rescan="* 0 4 * * ? *" trigger="allow"/>
+    <update startup="true" rescan="0 1 10 * * ? *" trigger="allow"/>
   </featureCollection>
 
   <!-- <featureCollection name="GDAS" featureType="FMRC" harvest="true" path="GDAS"> -->
@@ -37,7 +37,7 @@
   <!--     <dataFormat>NetCDF</dataFormat> -->
   <!--   </metadata> -->
   <!--   <collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/GDAS/**/gdas.*\.nc$" dateFormatMark="#forecast/GDAS/#yyyyMMdd" olderThan="5 min"/> -->
-  <!--   <update startup="true" rescan="* 0 4 * * ? *" trigger="allow"/> -->
+  <!--   <update startup="true" rescan="0 2 10 * * ? *" trigger="allow"/> -->
   <!-- </featureCollection> -->
 
 
@@ -48,7 +48,7 @@
       <dataFormat>NetCDF</dataFormat>
     </metadata>
     <collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/GEFSATMOS/**/gefs\..*\.nc$" dateFormatMark="#forecast/GEFSATMOS/#yyyyMMdd" olderThan="5 min"/>
-    <update startup="true" rescan="* 0 4 * * ? *" trigger="allow"/>
+    <update startup="true" rescan="0 3 10 * * ? *" trigger="allow"/>
   </featureCollection>
 
   <featureCollection name="GEFSATMOS_GUST" featureType="FMRC" harvest="true" path="GEFSATMOS_GUST">
@@ -58,7 +58,7 @@
       <dataFormat>NetCDF</dataFormat>
     </metadata>
     <collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/GEFSATMOS/**/gefs_gust.*\.nc$" dateFormatMark="#forecast/GEFSATMOS/#yyyyMMdd" olderThan="5 min"/>
-    <update startup="true" rescan="* 0 4 * * ? *" trigger="allow"/>
+    <update startup="true" rescan="0 4 10 * * ? *" trigger="allow"/>
   </featureCollection>
 
   <featureCollection name="GEFSWAVES" featureType="FMRC" harvest="true" path="GEFSWAVES">
@@ -68,7 +68,7 @@
       <dataFormat>NetCDF</dataFormat>
     </metadata>
     <collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/GEFSWAVES/**/gefs.*\.nc$" dateFormatMark="#forecast/GEFSWAVES/#yyyyMMdd" olderThan="5 min"/>
-    <update startup="true" rescan="* 0 4 * * ? *" trigger="allow"/>
+    <update startup="true" rescan="0 5 10 * * ? *" trigger="allow"/>
   </featureCollection>
 
 
@@ -79,7 +79,7 @@
       <dataFormat>NetCDF</dataFormat>
     </metadata>
     <collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/GENS/**/gefs.*\.nc$" dateFormatMark="#forecast/GENS/#yyyyMMdd" olderThan="5 min"/>
-    <update startup="true" rescan="* 0 4 * * ? *" trigger="allow"/>
+    <update startup="true" rescan="0 6 10 * * ? *" trigger="allow"/>
   </featureCollection>
 
 
@@ -90,7 +90,7 @@
       <dataFormat>NetCDF</dataFormat>
     </metadata>
     <collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/GFS/**/gfs.*\.nc$" dateFormatMark="#forecast/GFS/#yyyyMMdd" olderThan="5 min"/>
-    <update startup="true" rescan="* 0 4 * * ? *" trigger="allow"/>
+    <update startup="true" rescan="0 7 10 * * ? *" trigger="allow"/>
   </featureCollection>
 
 
@@ -101,7 +101,7 @@
       <dataFormat>NetCDF</dataFormat>
     </metadata>
     <collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/GFS_SURFACE/**/gfs.surface.*\.nc$" dateFormatMark="#forecast/GFS_SURFACE/#yyyyMMdd" olderThan="5 min"/>
-    <update startup="true" rescan="* 0 4 * * ? *" trigger="allow"/>
+    <update startup="true" rescan="0 8 10 * * ? *" trigger="allow"/>
   </featureCollection>
 
 
@@ -112,7 +112,7 @@
       <dataFormat>NetCDF</dataFormat>
     </metadata>
     <collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/ICON/**/icon.*\.nc$" dateFormatMark="#forecast/ICON/#yyyyMMdd" olderThan="5 min"/>
-    <update startup="true" rescan="* 0 4 * * ? *" trigger="allow"/>
+    <update startup="true" rescan="0 9 10 * * ? *" trigger="allow"/>
   </featureCollection>
 
 
@@ -123,7 +123,7 @@
       <dataFormat>NetCDF</dataFormat>
     </metadata>
     <collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/ICONB/**/icon.*\.nc$" dateFormatMark="#forecast/ICONB/#yyyyMMdd" olderThan="5 min"/>
-    <update startup="true" rescan="* 0 4 * * ? *" trigger="allow"/>
+    <update startup="true" rescan="0 10 10 * * ? *" trigger="allow"/>
   </featureCollection>
 
 
@@ -134,7 +134,7 @@
       <dataFormat>NetCDF</dataFormat>
     </metadata>
     <collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/ICONEPS/**/iconeps.*\.nc$" dateFormatMark="#forecast/ICONEPS/#yyyyMMdd" olderThan="5 min"/>
-    <update startup="true" rescan="* 0 4 * * ? *" trigger="allow"/>
+    <update startup="true" rescan="0 11 10 * * ? *" trigger="allow"/>
   </featureCollection>
 
 
@@ -145,7 +145,7 @@
       <dataFormat>NetCDF</dataFormat>
     </metadata>
     <collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/WAMICON/**/wamicon.*\.nc$" dateFormatMark="#forecast/WAMICON/#yyyyMMdd" olderThan="5 min"/>
-    <update startup="true" rescan="* 0 4 * * ? *" trigger="allow"/>
+    <update startup="true" rescan="0 12 10 * * ? *" trigger="allow"/>
   </featureCollection>
 
 
@@ -156,7 +156,7 @@
       <dataFormat>NetCDF</dataFormat>
     </metadata>
     <collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/WW3/**/ww3.multi_1.*\.nc$" dateFormatMark="#forecast/WW3/#yyyyMMdd" olderThan="5 min"/>
-    <update startup="true" rescan="* 0 4 * * ? *" trigger="allow"/>
+    <update startup="true" rescan="0 13 10 * * ? *" trigger="allow"/>
   </featureCollection>
 
   <featureCollection name="WW3_global" featureType="FMRC" harvest="true" path="WW3_global">
@@ -166,7 +166,7 @@
       <dataFormat>NetCDF</dataFormat>
     </metadata>
     <collection spec="/usr/local/tomcat/content/thredds/public/data/forecast/WW3/**/ww3.global.*\.nc$" dateFormatMark="#forecast/WW3/#yyyyMMdd" olderThan="5 min"/>
-    <update startup="true" rescan="* 0 4 * * ? *" trigger="allow"/>
+    <update startup="true" rescan="0 14 10 * * ? *" trigger="allow"/>
   </featureCollection>
 
 </catalog>

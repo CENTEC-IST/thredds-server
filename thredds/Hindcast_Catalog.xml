@@ -20,7 +20,7 @@
       <dataFormat>NetCDF</dataFormat>
     </metadata>
     <collection spec="/usr/local/tomcat/content/thredds/public/data/hindcast/ERA5/**/.*era5.*\.nc$" dateFormatMark="yyyyMM#.nc#$" olderThan="5 min"/>
-    <update startup="true" rescan="* 0 0 * * ? *" trigger="allow"/>
+    <update startup="true" rescan="0 0 0 * * ? *" trigger="allow"/>
   </featureCollection>
 
   <!-- ========================================== -->
@@ -34,7 +34,7 @@
       <dataFormat>NetCDF</dataFormat>
     </metadata>
     <collection spec="/usr/local/tomcat/content/thredds/public/data/hindcast/WAVERYS/data/waverys_#yyyyMMdd#.nc" olderThan="5 min"/>
-    <update startup="true" rescan="* 30 0 * * ? *" trigger="allow"/>
+    <update startup="true" rescan="0 0 0 * * ? *" trigger="allow"/>
   </featureCollection>
 
   <!-- ========================================== -->
@@ -48,7 +48,7 @@
       <dataFormat>NetCDF</dataFormat>
     </metadata>
     <collection spec="/usr/local/tomcat/content/thredds/public/data/hindcast/IFREMER_CFSR/ww3IfremerCFSR_#yyyyMM#\.nc" olderThan="5 min"/>
-    <update startup="true" rescan="* 0 1 * * ? *" trigger="allow"/>
+    <update startup="true" rescan="0 0 0 * * ? *" trigger="allow"/>
   </featureCollection>
 
   <featureCollection name="IFREMER_ERA5" featureType="FMRC" harvest="true" path="IFREMER_ERA5/">
@@ -58,7 +58,7 @@
       <dataFormat>NetCDF</dataFormat>
     </metadata>
     <collection spec="/usr/local/tomcat/content/thredds/public/data/hindcast/IFREMER_ERA5/ww3IfremerERA5_#yyyyMM#\.nc" olderThan="5 min"/>
-    <update startup="true" rescan="* 0 1 * * ? *" trigger="allow"/>
+    <update startup="true" rescan="0 0 0 * * ? *" trigger="allow"/>
   </featureCollection>
 
   <!-- ========================================== -->
@@ -72,7 +72,7 @@
       <dataFormat>NetCDF</dataFormat>
     </metadata>
     <collection spec="/usr/local/tomcat/content/thredds/public/data/hindcast/CFSR/.*gdas.*\.nc" dateFormatMark="yyyyMM#.nc#$" olderThan="5 min"/>
-    <update startup="true" rescan="* 30 1 * * ? *" trigger="allow"/>
+    <update startup="true" rescan="0 0 0 * * ? *" trigger="allow"/>
   </featureCollection>
 
   <!-- ========================================== -->
@@ -86,7 +86,7 @@
       <dataFormat>NetCDF</dataFormat>
     </metadata>
     <collection spec="/usr/local/tomcat/content/thredds/public/data/hindcast/CFSv2/.*gdas.*\.nc" dateFormatMark="yyyyMM#.nc#$" olderThan="5 min"/>
-    <update startup="true" rescan="* 0 2 * * ? *" trigger="allow"/>
+    <update startup="true" rescan="0 0 0 * * ? *" trigger="allow"/>
   </featureCollection>
 
   <!-- ========================================== -->
@@ -102,7 +102,7 @@
   <!--   </metadata> -->
   <!--   <!-1- <collection spec="/usr/local/tomcat/content/thredds/public/data/hindcast/WW3ST4/.*partition.*\.nc" dateFormatMark="yyyyMM#.nc#$" olderThan="5 min"/> -1-> -->
   <!--   <collection spec="/usr/local/tomcat/content/thredds/public/data/hindcast/WW3ST4/multi_reanal.partition.glo_30m.#yyyyMM#.nc" olderThan="5 min"/> -->
-  <!--   <update startup="true" rescan="* 30 2 * * ? *" trigger="allow"/> -->
+  <!--   <update startup="true" rescan="0 0 0 * * ? *" trigger="allow"/> -->
   <!-- </featureCollection> -->
 
 </catalog>

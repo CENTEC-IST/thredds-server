@@ -60,7 +60,49 @@ for more information.
                 <variable id="10fg">
                     <defaultColorScaleRange>0 30</defaultColorScaleRange>
                 </variable>
-
+            </variables>
+        </datasetPath>
+        <datasetPath pathSpec="**/runs/*">
+            <variables>
+                <variable id="wind">
+                    <defaultColorScaleRange>0 20</defaultColorScaleRange>
+                </variable>
+                <variable id="atmp">
+                    <defaultColorScaleRange>230 310</defaultColorScaleRange>
+                </variable>
+                <variable id="vwnd">
+                    <defaultColorScaleRange>-15 20</defaultColorScaleRange>
+                </variable>
+                <variable id="uwnd">
+                    <defaultColorScaleRange>-15 20</defaultColorScaleRange>
+                </variable>
+                <variable id="vwnd850">
+                    <defaultColorScaleRange>-20 30</defaultColorScaleRange>
+                </variable>
+                <variable id="uwnd850">
+                    <defaultColorScaleRange>-20 30</defaultColorScaleRange>
+                </variable>
+                <variable id="i10fg">
+                    <defaultColorScaleRange>0 30</defaultColorScaleRange>
+                </variable>
+                <variable id="dewp">
+                    <defaultColorScaleRange>230 300</defaultColorScaleRange>
+                </variable>
+                <variable id="hgt">
+                    <defaultColorScaleRange>940 1700</defaultColorScaleRange>
+                </variable>
+                <variable id="sst">
+                    <defaultColorScaleRange>260 310</defaultColorScaleRange>
+                </variable>
+                <variable id="msl">
+                    <defaultColorScaleRange>95000 104000</defaultColorScaleRange>
+                </variable>
+                <variable id="gust">
+                    <defaultColorScaleRange>0 38</defaultColorScaleRange>
+                </variable>
+                <variable id="10fg">
+                    <defaultColorScaleRange>0 30</defaultColorScaleRange>
+                </variable>
             </variables>
         </datasetPath>
 

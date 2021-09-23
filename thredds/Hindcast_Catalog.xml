@@ -21,6 +21,7 @@
     </metadata>
     <collection spec="/usr/local/tomcat/content/thredds/public/data/hindcast/ERA5/**/.*era5.*\.nc$" dateFormatMark="yyyyMM#.nc#$" olderThan="5 min"/>
     <update startup="true" rescan="0 0 0 * * ? *" trigger="allow"/>
+    <fmrcConfig datasetTypes="Best Runs Files" />
   </featureCollection>
 
   <!-- ========================================== -->
@@ -35,6 +36,7 @@
     </metadata>
     <collection spec="/usr/local/tomcat/content/thredds/public/data/hindcast/WAVERYS/data/waverys_#yyyyMMdd#.nc" olderThan="5 min"/>
     <update startup="true" rescan="0 0 0 * * ? *" trigger="allow"/>
+    <fmrcConfig datasetTypes="Best Runs Files" />
   </featureCollection>
 
   <!-- ========================================== -->
@@ -49,6 +51,7 @@
     </metadata>
     <collection spec="/usr/local/tomcat/content/thredds/public/data/hindcast/IFREMER_CFSR/ww3IfremerCFSR_#yyyyMM#\.nc" olderThan="5 min"/>
     <update startup="true" rescan="0 0 0 * * ? *" trigger="allow"/>
+    <fmrcConfig datasetTypes="Best Runs Files" />
   </featureCollection>
 
   <featureCollection name="IFREMER_ERA5" featureType="FMRC" harvest="true" path="IFREMER_ERA5/">
@@ -59,6 +62,7 @@
     </metadata>
     <collection spec="/usr/local/tomcat/content/thredds/public/data/hindcast/IFREMER_ERA5/ww3IfremerERA5_#yyyyMM#\.nc" olderThan="5 min"/>
     <update startup="true" rescan="0 0 0 * * ? *" trigger="allow"/>
+    <fmrcConfig datasetTypes="Best Runs Files" />
   </featureCollection>
 
   <!-- ========================================== -->
@@ -73,6 +77,7 @@
     </metadata>
     <collection spec="/usr/local/tomcat/content/thredds/public/data/hindcast/CFSR/.*gdas.*\.nc" dateFormatMark="yyyyMM#.nc#$" olderThan="5 min"/>
     <update startup="true" rescan="0 0 0 * * ? *" trigger="allow"/>
+    <fmrcConfig datasetTypes="Best Runs Files" />
   </featureCollection>
 
   <!-- ========================================== -->
@@ -87,6 +92,7 @@
     </metadata>
     <collection spec="/usr/local/tomcat/content/thredds/public/data/hindcast/CFSv2/.*gdas.*\.nc" dateFormatMark="yyyyMM#.nc#$" olderThan="5 min"/>
     <update startup="true" rescan="0 0 0 * * ? *" trigger="allow"/>
+    <fmrcConfig datasetTypes="Best Runs Files" />
   </featureCollection>
 
   <!-- ========================================== -->

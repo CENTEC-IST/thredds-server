@@ -1,12 +1,9 @@
 :root {
-	--bg1: #002d40;
-	--bg2: #1da2d8;
+	--main-color: #c0cdd4;
 	--light: #d9ecf2;
+	--centec-blue: #80a0dd;
 }
 
-html {
-	background-color: var(--bg1);
-}
 
 body{
 	font-weight: normal;
@@ -14,17 +11,11 @@ body{
 	font-family: Arial, Helvetica, sans-serif;
 	width: 80%;
 	margin: 0 auto;
-	color: white;
-}
-
-ol {
-	font-size: 12pt;
 }
 
 h2 {
 	font-size: 17pt;
 	text-align: center;
-	color: var(--bg2);
 }
 
 td {
@@ -32,41 +23,19 @@ td {
 	font-size: 10pt;
 	text-align: right;
 	padding-right: 10px;
-	color: #fff;
 	text-decoration: none;
-	background-color: #fff;
 }
 
-body > table:nth-child(1) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1) {
-	text-align: right;
-	font-weight: bold;
-	font-size:  18pt;
-	padding-right: 30px;
+a:link {
+	color: var(--centec-blue);
+	text-decoration: none;
 }
 
-h3 > strong > a:nth-child(1) {
-	color: var(--bg1);
-}
-
-h3 {
-	color: var(--bg2);
-}
-
-A:link {
-	color: var(--bg2)
-
-}
-
-A:visited {
-	color: var(--bg2);
+a:visited {
+	color: var(--centec-blue);
 }
 
 a:hover {
-	color: #FF0000;
 	text-decoration: underline
 }
-
-A { text-decoration: none }
-
-
 

@@ -22,6 +22,12 @@ services:
               target: /usr/local/tomcat/conf/tomcat-users.xml
               read_only: true
 
+
+            - type: bind
+              source: ./web.xml
+              target: /usr/local/tomcat/conf/web.xml
+              read_only: true
+
               #THREADS FOLDER -- UNCOMMENT JUST IN CASE
             - type: bind
               source: ./thredds

@@ -7,7 +7,7 @@
   <role rolename="tdsConfig" description="can change THREDDS configuration files"/>
   <role rolename="tdsMonitor" description="can monitor log files with tdsMonitor program"/>
   <role rolename="tdsTrigger" description="can trigger feature collections, eg from tdm"/>
-  <role rolename="restrictedAccess" description="restricted access to some datasets"/>
+  <role rolename="centecResearcher" description="restricted access to some datasets"/>
 
   <user username="tdm"
         password="1a8755ca18bea68fa43e2fa2d5d89fde446d3151"
@@ -20,5 +20,5 @@
   <!-- docker run tomcat  /usr/local/tomcat/bin/digest.sh -a "sha-512" <password> -->
   <user username="centec"
         password="9f2eecfa28b567edb8abf3d2a29ae51ddccd5bd9459a18c9bfae661a169f467c$1$f1f69002a9907d8b7a891f794b43829baca703bea3fc85cd95a6bfb1f0d0271410965ee2a628665918bafe2e30ca0df9dd6107e7b7bd2a2b0aad5add6715188f"
-        roles="restrictedAccess"/>
+        roles="centecResearcher"/>
 </tomcat-users>

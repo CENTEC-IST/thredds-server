@@ -3,6 +3,12 @@
 version: '3.7'
 
 services:
+    php-proxy:
+      build: ./php-proxy
+      ports:
+        - "9999:8080"
+      container_name: php-proxy
+
     thredds:
         image: unidata/thredds-docker:latest
         ports:

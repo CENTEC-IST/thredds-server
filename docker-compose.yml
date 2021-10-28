@@ -3,19 +3,23 @@
 version: '3.7'
 
 services:
-    php-proxy:
-      build: ./php-proxy
+    nginx:
+      image: nginx
+      container_name: nginx
+      restart: always
       ports:
-        - "9999:8080"
-      container_name: php-proxy
-
+        - "80:80"
+      volumes:
+        - ./nginx/conf.d:/etc/nginx/conf.d
     thredds:
         image: unidata/thredds-docker:latest
         ports:
-            - "80:8080"
+            - "8081:8080"
             - "443:8443"
             - "8443:8443"
         container_name: thredds
+        depends_on:
+            - 'nginx'
         volumes:
             # LINK CONFIGS {{{1
             - type: bind # link threddsConfig separetly because the docker container changes permissions on this file inside /thredds
@@ -344,3 +348,7 @@ services:
         env_file:
             - "compose.env"
 
+networks:
+  default:
+    external:
+      name: 'centec-network'

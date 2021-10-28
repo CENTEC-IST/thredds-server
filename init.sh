@@ -6,5 +6,6 @@ logs="./logs"
 [ ! -d $logs/tomcat ] && mkdir $logs/tomcat
 [ ! -d $logs/thredds ] && mkdir $logs/thredds
 
+docker network create centec-network
 # Initialize docker network and images
-docker-compose up --no-start
+docker-compose up -d
